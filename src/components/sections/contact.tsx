@@ -252,7 +252,7 @@ export function Contact() {
                       type="email"
                       value={formData.email}
                       onChange={handleInputChange}
-                      placeholder="john@example.com"
+                      placeholder="email"
                       required
                     />
                   </div>

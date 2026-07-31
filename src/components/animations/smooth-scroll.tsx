@@ -2,27 +2,26 @@
 
 import { useEffect, useRef } from 'react';
 import Lenis from 'lenis';
-import { useScroll, useTransform, motion } from 'framer-motion';
+import { motion, useScroll, useTransform } from 'framer-motion';
 
 export function SmoothScroll({ children }: { children: React.ReactNode }) {
   const lenisRef = useRef<Lenis | null>(null);
+  const rafRef = useRef<number>(0);
 
   useEffect(() => {
-    // Initialize Lenis smooth scroll
     lenisRef.current = new Lenis({
       duration: 1.2,
       easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
     });
 
-    // Integrate with requestAnimationFrame
     function raf(time: number) {
       lenisRef.current?.raf(time);
-      requestAnimationFrame(raf);
+      rafRef.current = requestAnimationFrame(raf);
     }
-    requestAnimationFrame(raf);
+    rafRef.current = requestAnimationFrame(raf);
 
-    // Cleanup
     return () => {
+      cancelAnimationFrame(rafRef.current);
       lenisRef.current?.destroy();
     };
   }, []);
@@ -30,21 +29,15 @@ export function SmoothScroll({ children }: { children: React.ReactNode }) {
   return <>{children}</>;
 }
 
-// Custom hook for scroll progress
-export function useScrollProgress() {
-  const { scrollYProgress } = useScroll();
-  const progress = useTransform(scrollYProgress, [0, 1], [0, 1]);
-  return progress;
-}
-
 // Scroll progress indicator component
 export function ScrollProgress() {
-  const progress = useScrollProgress();
+  const { scrollYProgress } = useScroll();
+  const scaleX = useTransform(scrollYProgress, [0, 1], [0, 1]);
 
   return (
     <motion.div
       className="fixed top-0 left-0 right-0 h-1 bg-gradient-to-r from-blue-500 to-cyan-500 z-[100] origin-left"
-      style={{ scaleX: progress }}
+      style={{ scaleX }}
     />
   );
 }
@@ -76,22 +69,5 @@ export function ScrollReveal({
     >
       {children}
     </motion.div>
-  );
-}
-
-// Parallax effect component
-export function Parallax({ children, speed = 0.5 }: { children: React.ReactNode; speed?: number }) {
-  const ref = useRef<HTMLDivElement>(null);
-  const { scrollYProgress } = useScroll({
-    target: ref,
-    offset: ['start end', 'end start'],
-  });
-
-  const y = useTransform(scrollYProgress, [0, 1], [0, speed * 100]);
-
-  return (
-    <div ref={ref} style={{ position: 'relative' }}>
-      <motion.div style={{ y }}>{children}</motion.div>
-    </div>
   );
 }

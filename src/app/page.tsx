@@ -37,7 +37,7 @@ export default function Home() {
   return (
     <>
       {/* Loading Screen */}
-      <LoadingScreen onComplete={() => setIsLoading(false)} />
+      {isLoading && <LoadingScreen onComplete={() => setIsLoading(false)} />}
 
       {/* Main Content */}
       <div className={`transition-opacity duration-500 ${isLoading ? 'opacity-0' : 'opacity-100'}`}>
