@@ -20,7 +20,7 @@ export function Services() {
       icon: Code,
       title: t('services.fullStack.title'),
       description: t('services.fullStack.description'),
-      features: ['React & Next.js', 'Node.js & Python', 'Database Integration', 'API Development'],
+      features: ['React & Next.js', ' Python', 'Database Integration', 'API Development'],
     },
     {
       icon: Server,
@@ -28,29 +28,29 @@ export function Services() {
       description: t('services.backend.description'),
       features: ['RESTful APIs', 'GraphQL', 'Authentication', 'Microservices'],
     },
-    {
-      icon: Smartphone,
-      title: t('services.mobile.title'),
-      description: t('services.mobile.description'),
-      features: ['Flutter', 'React Native', 'iOS & Android', 'Cross-platform'],
-    },
-    {
-      icon: Palette,
-      title: t('services.uiux.title'),
-      description: t('services.uiux.description'),
-      features: ['User Research', 'Wireframing', 'Prototyping', 'Design Systems'],
-    },
-    {
-      icon: Cloud,
-      title: t('services.saas.title'),
-      description: t('services.saas.description'),
-      features: ['Cloud Architecture', 'Scalability', 'Security', 'DevOps'],
-    },
+    // {
+    //   icon: Smartphone,
+    //   title: t('services.mobile.title'),
+    //   description: t('services.mobile.description'),
+    //   features: ['Flutter', 'React Native', 'iOS & Android', 'Cross-platform'],
+    // },
+    // {
+    //   icon: Palette,
+    //   title: t('services.uiux.title'),
+    //   description: t('services.uiux.description'),
+    //   features: ['User Research', 'Wireframing', 'Prototyping', 'Design Systems'],
+    // },
+    // {
+    //   icon: Cloud,
+    //   title: t('services.saas.title'),
+    //   description: t('services.saas.description'),
+    //   features: ['Cloud Architecture', 'Scalability', 'Security', ],
+    // },
     {
       icon: Database,
       title: t('services.database.title'),
       description: t('services.database.description'),
-      features: ['SQL & NoSQL', 'Data Modeling', 'Optimization', 'Migration'],
+      features: ['SQL ', 'Data Modeling', 'Optimization', 'Migration'],
     },
   ];
 

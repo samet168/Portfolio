@@ -6,7 +6,7 @@ import {
   ArrowLeft, ArrowRight, ExternalLink, Globe, Star,
   Clock, Users, Zap, Monitor, Moon, CheckCircle2, ChevronRight,
   Copy, GitBranch, Calendar, Code2, Layers, Database, Cloud,
-  AlertTriangle, Lightbulb, BookOpen
+  AlertTriangle, Lightbulb, BookOpen, Mail, Lock, Eye, EyeOff
 } from 'lucide-react';
 
 // Github icon (removed from lucide-react in newer versions)
@@ -164,15 +164,50 @@ function ProjectHero({ project }: { project: Project }) {
               </motion.button>
             </a>
           )}
-          <a href={project.github.url} target="_blank" rel="noopener noreferrer">
-            <motion.button
-              className="inline-flex items-center gap-2 px-6 py-3 rounded-xl font-semibold border border-white/10 text-gray-700 dark:text-white hover:bg-white/5 transition-colors"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-            >
-              <GithubIcon className="w-5 h-5" /> GitHub
-            </motion.button>
-          </a>
+          {project.viewUrl && (
+            <a href={project.viewUrl} target="_blank" rel="noopener noreferrer">
+              <motion.button
+                className="inline-flex items-center gap-2 px-6 py-3 rounded-xl font-semibold bg-gradient-to-r from-red-500 to-rose-500 text-white shadow-lg shadow-red-500/25 hover:shadow-red-500/40 transition-shadow"
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+              >
+                <ExternalLink className="w-5 h-5" /> View
+              </motion.button>
+            </a>
+          )}
+          {project.frontendUrl && (
+            <a href={project.frontendUrl} target="_blank" rel="noopener noreferrer">
+              <motion.button
+                className="inline-flex items-center gap-2 px-6 py-3 rounded-xl font-semibold border border-white/10 text-gray-700 dark:text-white hover:bg-white/5 transition-colors"
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+              >
+                <GithubIcon className="w-5 h-5" /> Frontend
+              </motion.button>
+            </a>
+          )}
+          {project.backendUrl && (
+            <a href={project.backendUrl} target="_blank" rel="noopener noreferrer">
+              <motion.button
+                className="inline-flex items-center gap-2 px-6 py-3 rounded-xl font-semibold border border-white/10 text-gray-700 dark:text-white hover:bg-white/5 transition-colors"
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+              >
+                <GithubIcon className="w-5 h-5" /> Backend
+              </motion.button>
+            </a>
+          )}
+          {!project.frontendUrl && !project.backendUrl && (
+            <a href={project.github.url} target="_blank" rel="noopener noreferrer">
+              <motion.button
+                className="inline-flex items-center gap-2 px-6 py-3 rounded-xl font-semibold border border-white/10 text-gray-700 dark:text-white hover:bg-white/5 transition-colors"
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+              >
+                <GithubIcon className="w-5 h-5" /> GitHub
+              </motion.button>
+            </a>
+          )}
         </motion.div>
       </motion.div>
     </section>
@@ -822,6 +857,109 @@ function LiveDemoSection({ project }: { project: Project }) {
   );
 }
 
+function DemoAccountSection({ project }: { project: Project }) {
+  const [showPassword, setShowPassword] = useState(false);
+  const [copiedEmail, setCopiedEmail] = useState(false);
+  const [copiedPassword, setCopiedPassword] = useState(false);
+
+  if (!project.demoAccount) return null;
+
+  function copyText(text: string, type: 'email' | 'password') {
+    navigator.clipboard.writeText(text);
+    if (type === 'email') {
+      setCopiedEmail(true);
+      setTimeout(() => setCopiedEmail(false), 2000);
+    } else {
+      setCopiedPassword(true);
+      setTimeout(() => setCopiedPassword(false), 2000);
+    }
+  }
+
+  return (
+    <section className="py-20 relative">
+      <div className="container mx-auto px-4">
+        <SectionHeader title="Demo Account" subtitle="Use these credentials to try the live demo" />
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="max-w-lg mx-auto"
+        >
+          <div className="p-8 rounded-2xl bg-white/5 dark:bg-slate-900/50 border border-white/10 backdrop-blur-xl">
+            {/* Header */}
+            <div className="flex items-center gap-3 mb-6">
+              <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-amber-500/20 to-orange-500/20 flex items-center justify-center border border-amber-500/20">
+                <Lock className="w-5 h-5 text-amber-400" />
+              </div>
+              <div>
+                <h3 className="font-bold text-gray-900 dark:text-white">Test Credentials</h3>
+                <p className="text-xs text-gray-500 dark:text-gray-400">For demo purposes only</p>
+              </div>
+            </div>
+
+            {/* Email */}
+            <div className="mb-4">
+              <label className="text-xs text-gray-500 dark:text-gray-500 uppercase tracking-wider mb-2 block">Email</label>
+              <div className="flex items-center gap-2 p-3 rounded-xl bg-black/20 border border-white/5">
+                <Mail className="w-4 h-4 text-gray-500 shrink-0" />
+                <span className="flex-1 text-sm text-gray-300 font-mono">{project.demoAccount.email}</span>
+                <button
+                  onClick={() => copyText(project.demoAccount!.email, 'email')}
+                  className="p-1.5 rounded-lg hover:bg-white/10 transition-colors shrink-0"
+                  aria-label="Copy email"
+                >
+                  <Copy className={`w-4 h-4 ${copiedEmail ? 'text-green-400' : 'text-gray-500'}`} />
+                </button>
+              </div>
+            </div>
+
+            {/* Password */}
+            <div className="mb-6">
+              <label className="text-xs text-gray-500 dark:text-gray-500 uppercase tracking-wider mb-2 block">Password</label>
+              <div className="flex items-center gap-2 p-3 rounded-xl bg-black/20 border border-white/5">
+                <Lock className="w-4 h-4 text-gray-500 shrink-0" />
+                <span className="flex-1 text-sm text-gray-300 font-mono">
+                  {showPassword ? project.demoAccount.password : '•'.repeat(project.demoAccount.password.length)}
+                </span>
+                <button
+                  onClick={() => setShowPassword(!showPassword)}
+                  className="p-1.5 rounded-lg hover:bg-white/10 transition-colors shrink-0"
+                  aria-label="Toggle password visibility"
+                >
+                  {showPassword
+                    ? <EyeOff className="w-4 h-4 text-gray-500" />
+                    : <Eye className="w-4 h-4 text-gray-500" />
+                  }
+                </button>
+                <button
+                  onClick={() => copyText(project.demoAccount!.password, 'password')}
+                  className="p-1.5 rounded-lg hover:bg-white/10 transition-colors shrink-0"
+                  aria-label="Copy password"
+                >
+                  <Copy className={`w-4 h-4 ${copiedPassword ? 'text-green-400' : 'text-gray-500'}`} />
+                </button>
+              </div>
+            </div>
+
+            {/* Visit button */}
+            {project.viewUrl && (
+              <a href={project.viewUrl} target="_blank" rel="noopener noreferrer">
+                <motion.button
+                  className="w-full px-5 py-3 rounded-xl font-semibold bg-gradient-to-r from-amber-500 to-orange-500 text-white text-sm flex items-center justify-center gap-2 shadow-lg shadow-amber-500/20 hover:shadow-amber-500/40 transition-shadow"
+                  whileHover={{ scale: 1.02 }}
+                  whileTap={{ scale: 0.98 }}
+                >
+                  <ExternalLink className="w-4 h-4" /> Open Live Demo
+                </motion.button>
+              </a>
+            )}
+          </div>
+        </motion.div>
+      </div>
+    </section>
+  );
+}
+
 function RelatedProjects({ currentSlug }: { currentSlug: string }) {
   const related = getRelatedProjects(currentSlug, 3);
 
@@ -1046,6 +1184,7 @@ export default function ProjectDetailPage({ params }: { params: Promise<{ slug: 
       {/* Full-width sections */}
       <GithubSection project={project} />
       <LiveDemoSection project={project} />
+      <DemoAccountSection project={project} />
       <RelatedProjects currentSlug={slug} />
       <ProjectNavigation currentSlug={slug} />
     </div>
