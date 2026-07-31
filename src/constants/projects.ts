@@ -235,7 +235,7 @@ export const projects: Project[] = [
     longDescription: 'A comprehensive point-of-sale management system designed specifically for coffee shops. Features include order processing, inventory management, staff scheduling, loyalty programs, and real-time sales analytics with beautiful dashboards.',
     category: 'Business Software',
     status: 'completed',
-    image: '/images/projects/pos-management.png',
+    // image: '/images/projects/pos-management.png',
     gradient: 'from-amber-500 via-orange-500 to-red-500',
     accentColor: '#F59E0B',
     technologies: ['Java', 'Spring Boot', 'MySQL', 'React', 'Docker', 'Redis'],

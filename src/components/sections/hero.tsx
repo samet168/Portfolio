@@ -159,10 +159,10 @@ export function Hero() {
               <Button size="lg" onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}>
                 {t('hero.cta')}
               </Button>
-              <Button variant="outline" size="lg">
+              {/* <Button variant="outline" size="lg">
                 <Download className="w-4 h-4 mr-2" />
                 {t('hero.downloadCV')}
-              </Button>
+              </Button> */}
             </motion.div>
 
             {/* Social Links */}
@@ -273,7 +273,7 @@ export function Hero() {
                 animate={{ y: [0, -8, 0] }}
                 transition={{ duration: 3.5, repeat: Infinity, ease: 'easeInOut' }}
               >
-                <div className="text-2xl font-bold gradient-text">3+</div>
+                <div className="text-2xl font-bold gradient-text">4</div>
                 <div className="text-[10px] text-gray-600 dark:text-gray-400">Years Exp</div>
               </motion.div>
 
