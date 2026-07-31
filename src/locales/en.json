@@ -1,0 +1,151 @@
+{
+  "navbar": {
+    "home": "Home",
+    "about": "About",
+    "skills": "Skills",
+    "experience": "Experience",
+    "projects": "Projects",
+    "services": "Services",
+    "contact": "Contact"
+  },
+  "hero": {
+    "greeting": "Hello, I'm",
+    "name": "MOEUN SAMET",
+    "title": "Full Stack Developer",
+    "description": "I build responsive web applications and beautiful user interfaces that solve real-world problems.",
+    "cta": "Get In Touch",
+    "downloadCV": "Download CV",
+    "stats": {
+      "experience": "Years Experience",
+      "projects": "Completed Projects",
+      "technologies": "Technologies",
+      "clients": "Happy Clients"
+    }
+  },
+  "about": {
+    "title": "About Me",
+    "subtitle": "Get to know me better",
+    "biography": "I'm a third-year computer science student at RUPP with a strong passion for web development and creating functional, user-friendly web experiences.",
+    "passion": "I enjoy learning new technologies and applying them to build clean, efficient, and visually appealing projects. I'm eager to collaborate, improve my skills, and contribute to meaningful projects.",
+    "personalInfo": {
+      "name": "Name",
+      "email": "Email",
+      "location": "Location",
+      "availability": "Availability"
+    },
+    "downloadCV": "Download CV"
+  },
+  "skills": {
+    "title": "Skills",
+    "subtitle": "Technologies I work with",
+    "categories": {
+      "frontend": "Frontend",
+      "backend": "Backend",
+      "database": "Database",
+      "mobile": "Mobile",
+      "programming": "Programming",
+      "tools": "Tools"
+    }
+  },
+  "experience": {
+    "title": "Experience",
+    "subtitle": "What I have learned and accomplished over the years",
+    "timeline": [
+      {
+        "year": "2024 – 2025",
+        "title": "ETEC Training Center",
+        "description": "Successfully passed the exam and received a scholarship at the ETEC Training Center."
+      },
+      {
+        "year": "2024",
+        "title": "Phone Shop Project",
+        "description": "Participated in creating a Phone Shop Project after completing the C++ Course at ANT Training."
+      },
+      {
+        "year": "2025 – RUPP Group Work",
+        "title": "University Projects",
+        "description": "Collaborated on various group projects at RUPP, enhancing teamwork and technical skills."
+      }
+    ]
+  },
+  "education": {
+    "title": "Education",
+    "timeline": [
+      {
+        "year": "2022 – Present",
+        "institution": "Royal University of Phnom Penh (RUPP)",
+        "degree": "Bachelor of Computer Science",
+        "description": "Currently pursuing a degree in Computer Science with focus on software development."
+      }
+    ]
+  },
+  "projects": {
+    "title": "Projects",
+    "subtitle": "Featured work and case studies",
+    "viewDemo": "View Demo",
+    "viewCode": "View Code",
+    "technologies": "Technologies",
+    "featured": "Featured Projects"
+  },
+  "services": {
+    "title": "Services",
+    "subtitle": "What I can do for you",
+    "fullStack": {
+      "title": "Full Stack Development",
+      "description": "Building complete web applications from frontend to backend with modern technologies."
+    },
+    "backend": {
+      "title": "Backend API Development",
+      "description": "Creating robust and scalable APIs using modern frameworks and best practices."
+    },
+    "mobile": {
+      "title": "Mobile Application Development",
+      "description": "Developing cross-platform mobile applications with Flutter and React Native."
+    },
+    "uiux": {
+      "title": "UI/UX Design",
+      "description": "Designing intuitive and beautiful user interfaces that enhance user experience."
+    },
+    "saas": {
+      "title": "SaaS Platform Development",
+      "description": "Building scalable SaaS solutions with modern architecture and cloud integration."
+    },
+    "database": {
+      "title": "Database Architecture",
+      "description": "Designing efficient database schemas and optimizing data management systems."
+    }
+  },
+  "contact": {
+    "title": "Contact",
+    "subtitle": "Let's work together",
+    "form": {
+      "name": "Your Name",
+      "email": "Your Email",
+      "subject": "Subject",
+      "message": "Your Message",
+      "submit": "Send Message",
+      "success": "Message sent successfully!",
+      "error": "Failed to send message. Please try again."
+    },
+    "info": {
+      "email": "Email",
+      "phone": "Phone",
+      "location": "Location",
+      "social": "Social Media"
+    },
+    "copyEmail": "Copy Email",
+    "emailCopied": "Email copied to clipboard!"
+  },
+  "footer": {
+    "rights": "All rights reserved.",
+    "madeWith": "Made with"
+  },
+  "common": {
+    "loading": "Loading...",
+    "readMore": "Read More",
+    "viewAll": "View All",
+    "back": "Back",
+    "next": "Next",
+    "previous": "Previous"
+  }
+}
