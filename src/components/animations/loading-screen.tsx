@@ -17,23 +17,21 @@ export function LoadingScreen({ onComplete }: LoadingScreenProps) {
       setProgress((prev) => {
         if (prev >= 100) {
           clearInterval(interval);
-          setTimeout(() => {
-            setIsExiting(true);
-            setTimeout(onComplete, 400);
-          }, 300);
+          setIsExiting(true);
+          setTimeout(onComplete, 200);
           return 100;
         }
-        return prev + Math.random() * 12 + 3;
+        return prev + Math.random() * 25 + 15;
       });
-    }, 80);
+    }, 35);
 
     return () => clearInterval(interval);
   }, [onComplete]);
 
   return (
     <div
-      className={`fixed inset-0 z-[10000] flex items-center justify-center dark:bg-[rgb(2,6,23)] bg-white transition-opacity duration-400 ${
-        isExiting ? 'opacity-0' : 'opacity-100'
+      className={`fixed inset-0 z-[10000] flex items-center justify-center dark:bg-[rgb(2,6,23)] bg-white transition-opacity duration-200 ${
+        isExiting ? 'opacity-0 pointer-events-none' : 'opacity-100'
       }`}
     >
       <div className="relative flex flex-col items-center">

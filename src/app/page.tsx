@@ -21,14 +21,7 @@ export default function Home() {
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
-    // eslint-disable-next-line react-hooks/set-state-in-effect
     setMounted(true);
-    // Set a minimum loading time for the animation
-    const timer = setTimeout(() => {
-      setIsLoading(false);
-    }, 3000);
-
-    return () => clearTimeout(timer);
   }, []);
 
   if (!mounted) {

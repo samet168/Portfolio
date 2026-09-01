@@ -486,7 +486,7 @@ export const projects: Project[] = [
       url: 'https://github.com/samet167/run-url'
     },
     liveUrl: 'https://render-keepalive-hub.samet-dev.workers.dev/',
-    // viewUrl: 'https://render-keepalive-hub.samet-dev.workers.dev/',
+    viewUrl: 'https://render-keepalive-hub.samet-dev.workers.dev/',
     overview: {
       introduction:
         'Render 24/7 Keep-Alive Hub is an edge monitoring tool designed to keep serverless and cloud deployments awake continuously.',

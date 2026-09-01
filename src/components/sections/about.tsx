@@ -17,6 +17,11 @@ export function About() {
 
   const timeline = [
     {
+      year: '01 Jul 2026 – 31 Sep 2026',
+      title: 'Full Stack Developer Intern - iOne',
+      description: 'Completed a 3-month internship gaining real-world experience in microservices architecture, server deployment, and team collaboration.',
+    },
+    {
       year: '2022 – Present',
       title: 'Royal University of Phnom Penh (RUPP)',
       description: 'Bachelor of Computer Science - Currently pursuing a degree in Computer Science with focus on software development.',

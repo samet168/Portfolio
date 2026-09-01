@@ -33,19 +33,27 @@ export function Navbar() {
   ];
 
   useEffect(() => {
+    let ticking = false;
+
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 30);
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          setIsScrolled(window.scrollY > 30);
 
-      // Update active section
-      const sections = navItems.map((item) => document.getElementById(item.id));
-      const scrollPosition = window.scrollY + 120;
+          // Update active section
+          const sections = navItems.map((item) => document.getElementById(item.id));
+          const scrollPosition = window.scrollY + 120;
 
-      for (let i = sections.length - 1; i >= 0; i--) {
-        const section = sections[i];
-        if (section && section.offsetTop <= scrollPosition) {
-          setActiveSection(navItems[i].id);
-          break;
-        }
+          for (let i = sections.length - 1; i >= 0; i--) {
+            const section = sections[i];
+            if (section && section.offsetTop <= scrollPosition) {
+              setActiveSection(navItems[i].id);
+              break;
+            }
+          }
+          ticking = false;
+        });
+        ticking = true;
       }
     };
 

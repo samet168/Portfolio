@@ -20,6 +20,14 @@ export function Experience() {
 
   const experiences: ExperienceItem[] = [
     {
+      year: '01 Jul 2026 – 31 Sep 2026',
+      title: 'Full Stack Developer Intern',
+      company: 'iOne',
+      description: 'Completed a 3-month Full Stack internship at iOne. Gained practical experience deploying projects to production servers, building microservices architecture, and collaborating closely with cross-functional agile teams.',
+      technologies: ['Full Stack', 'Microservices', 'Server Deployment', 'Teamwork', 'Agile'],
+      type: 'work',
+    },
+    {
       year: '2024 – 2025',
       title: 'Scholarship Recipient',
       company: 'ETEC Training Center',

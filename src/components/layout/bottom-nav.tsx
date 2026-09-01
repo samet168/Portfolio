@@ -21,15 +21,22 @@ export function MobileBottomNav() {
   ];
 
   useEffect(() => {
+    let ticking = false;
+
     const handleScroll = () => {
-      // Section tracking
-      const scrollPosition = window.scrollY + 200;
-      for (let i = navItems.length - 1; i >= 0; i--) {
-        const element = document.getElementById(navItems[i].id);
-        if (element && element.offsetTop <= scrollPosition) {
-          setActiveSection(navItems[i].id);
-          break;
-        }
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          const scrollPosition = window.scrollY + 200;
+          for (let i = navItems.length - 1; i >= 0; i--) {
+            const element = document.getElementById(navItems[i].id);
+            if (element && element.offsetTop <= scrollPosition) {
+              setActiveSection(navItems[i].id);
+              break;
+            }
+          }
+          ticking = false;
+        });
+        ticking = true;
       }
     };
 

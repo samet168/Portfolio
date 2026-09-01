@@ -52,6 +52,11 @@
     "subtitle": "What I have learned and accomplished over the years",
     "timeline": [
       {
+        "year": "01 Jul 2026 – 31 Sep 2026",
+        "title": "Full Stack Developer Intern - iOne",
+        "description": "Completed a 3-month Full Stack internship at iOne. Gained hands-on experience deploying projects to production servers, building microservices architecture, and collaborating closely with agile teams."
+      },
+      {
         "year": "2024 – 2025",
         "title": "ETEC Training Center",
         "description": "Successfully passed the exam and received a scholarship at the ETEC Training Center."
