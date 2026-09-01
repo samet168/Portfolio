@@ -2,6 +2,8 @@
 
 import { useEffect, useState } from 'react';
 
+import Image from 'next/image';
+
 interface LoadingScreenProps {
   onComplete: () => void;
 }
@@ -30,15 +32,24 @@ export function LoadingScreen({ onComplete }: LoadingScreenProps) {
 
   return (
     <div
-      className={`fixed inset-0 z-[10000] flex items-center justify-center dark:bg-background bg-white transition-opacity duration-400 ${
+      className={`fixed inset-0 z-[10000] flex items-center justify-center dark:bg-[rgb(2,6,23)] bg-white transition-opacity duration-400 ${
         isExiting ? 'opacity-0' : 'opacity-100'
       }`}
     >
       <div className="relative flex flex-col items-center">
-        {/* Logo */}
-        <div className="mb-8">
-          <div className="relative flex h-20 w-20 items-center justify-center rounded-full bg-gradient-to-br from-blue-500 to-cyan-500 shadow-lg shadow-blue-500/25">
-            <span className="text-2xl font-bold text-white">MS</span>
+        {/* Logo Avatar */}
+        <div className="mb-6 relative">
+          <div className="absolute -inset-2 rounded-full bg-gradient-to-r from-blue-500 to-cyan-500 opacity-60 blur-md animate-pulse" />
+          <div className="relative flex h-20 w-20 items-center justify-center rounded-full p-[3px] bg-gradient-to-tr from-blue-500 via-cyan-400 to-indigo-500 shadow-xl shadow-blue-500/30">
+            <div className="w-full h-full rounded-full overflow-hidden relative bg-slate-900">
+              <Image
+                src="/images/hero/profile.jpg"
+                alt="Moeun Samet"
+                fill
+                className="object-cover"
+                priority
+              />
+            </div>
           </div>
         </div>
 

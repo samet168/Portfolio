@@ -272,35 +272,34 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
 
             {/* Action buttons */}
             <div className="flex gap-3 pt-2">
-              <Link href={`/projects/${project.slug}`} className="flex-1">
-                <motion.button
-                  className="w-full px-4 py-2.5 rounded-xl text-sm font-semibold bg-gradient-to-r from-blue-500 to-cyan-500 text-white hover:shadow-lg hover:shadow-blue-500/25 transition-shadow duration-300"
-                  whileHover={{ scale: 1.02 }}
-                  whileTap={{ scale: 0.98 }}
-                >
-                  View Details
-                </motion.button>
+              <Link
+                href={`/projects/${project.slug}`}
+                className="flex-1 px-4 py-2.5 rounded-xl text-sm font-semibold bg-gradient-to-r from-blue-500 to-cyan-500 text-white text-center hover:shadow-lg hover:shadow-blue-500/25 transition-all duration-300 active:scale-95 flex items-center justify-center"
+              >
+                View Details
               </Link>
               {project.liveUrl && (
-                <a href={project.liveUrl} target="_blank" rel="noopener noreferrer">
-                  <motion.button
-                    className="px-4 py-2.5 rounded-xl text-sm font-semibold border border-white/10 text-gray-700 dark:text-gray-300 hover:bg-white/5 transition-colors"
-                    whileHover={{ scale: 1.02 }}
-                    whileTap={{ scale: 0.98 }}
-                  >
-                    <ExternalLink className="w-4 h-4" />
-                  </motion.button>
+                <a
+                  href={project.liveUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="px-4 py-2.5 rounded-xl text-sm font-semibold border border-white/10 text-gray-700 dark:text-gray-300 hover:bg-white/5 transition-colors flex items-center justify-center active:scale-95"
+                  aria-label="Live Demo"
+                >
+                  <ExternalLink className="w-4 h-4" />
                 </a>
               )}
-              <a href={project.github.url} target="_blank" rel="noopener noreferrer">
-                <motion.button
-                  className="px-4 py-2.5 rounded-xl text-sm font-semibold border border-white/10 text-gray-700 dark:text-gray-300 hover:bg-white/5 transition-colors"
-                  whileHover={{ scale: 1.02 }}
-                  whileTap={{ scale: 0.98 }}
+              {project.github.url && (
+                <a
+                  href={project.github.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="px-4 py-2.5 rounded-xl text-sm font-semibold border border-white/10 text-gray-700 dark:text-gray-300 hover:bg-white/5 transition-colors flex items-center justify-center active:scale-95"
+                  aria-label="GitHub Repository"
                 >
                   <GithubIcon className="w-4 h-4" />
-                </motion.button>
-              </a>
+                </a>
+              )}
             </div>
           </div>
 
@@ -364,13 +363,13 @@ export function Projects() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.2 }}
-          className="flex flex-wrap justify-center gap-2 mb-12"
+          className="flex flex-nowrap sm:flex-wrap overflow-x-auto no-scrollbar justify-start sm:justify-center gap-2 pb-2 mb-8 sm:mb-12 px-1"
         >
           {projectCategories.map((category) => (
             <motion.button
               key={category}
               onClick={() => setActiveCategory(category)}
-              className={`px-5 py-2 rounded-full text-sm font-medium transition-all duration-300 ${
+              className={`px-4 sm:px-5 py-2 rounded-full text-xs sm:text-sm font-medium whitespace-nowrap shrink-0 transition-all duration-300 ${
                 activeCategory === category
                   ? 'bg-gradient-to-r from-blue-500 to-cyan-500 text-white shadow-lg shadow-blue-500/25'
                   : 'bg-white/5 text-gray-600 dark:text-gray-400 border border-white/10 hover:bg-white/10 hover:text-gray-900 dark:hover:text-white'
@@ -433,15 +432,12 @@ export function Projects() {
           transition={{ delay: 0.5 }}
           className="mt-16 text-center"
         >
-          <Link href="/projects">
-            <motion.button
-              className="group inline-flex items-center gap-3 px-8 py-4 rounded-full text-base font-semibold border border-white/10 text-gray-700 dark:text-white/80 hover:bg-white/5 hover:border-blue-500/50 transition-all duration-300"
-              whileHover={{ scale: 1.05, boxShadow: '0 0 30px rgba(0,140,255,0.2)' }}
-              whileTap={{ scale: 0.95 }}
-            >
-              View All Projects
-              <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-            </motion.button>
+          <Link
+            href="/projects"
+            className="group inline-flex items-center gap-3 px-8 py-4 rounded-full text-base font-semibold border border-white/10 text-gray-700 dark:text-white/80 hover:bg-white/5 hover:border-blue-500/50 hover:scale-105 active:scale-95 transition-all duration-300 shadow-sm hover:shadow-[0_0_30px_rgba(0,140,255,0.2)]"
+          >
+            View All Projects
+            <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
           </Link>
         </motion.div>
       </div>

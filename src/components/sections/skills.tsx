@@ -258,11 +258,11 @@ export function Skills() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ delay: 0.2 }}
-          className="flex flex-wrap justify-center gap-2 mb-14"
+          className="flex flex-nowrap sm:flex-wrap overflow-x-auto no-scrollbar justify-start sm:justify-center gap-2 pb-2 mb-10 sm:mb-14 px-1"
         >
           <motion.button
             onClick={() => setActiveCategory(null)}
-            className={`px-5 py-2.5 rounded-full text-sm font-medium transition-all duration-300 ${
+            className={`px-4 sm:px-5 py-2 sm:py-2.5 rounded-full text-xs sm:text-sm font-medium whitespace-nowrap shrink-0 transition-all duration-300 ${
               activeCategory === null
                 ? 'bg-gradient-to-r from-blue-500 to-cyan-500 text-white shadow-lg shadow-blue-500/25'
                 : 'bg-white/5 text-gray-600 dark:text-gray-400 border border-white/10 hover:bg-white/10 hover:text-gray-900 dark:hover:text-white'
@@ -278,7 +278,7 @@ export function Skills() {
               <motion.button
                 key={cat.category}
                 onClick={() => setActiveCategory(activeCategory === cat.category ? null : cat.category)}
-                className={`inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-sm font-medium transition-all duration-300 ${
+                className={`inline-flex items-center gap-1.5 sm:gap-2 px-4 sm:px-5 py-2 sm:py-2.5 rounded-full text-xs sm:text-sm font-medium whitespace-nowrap shrink-0 transition-all duration-300 ${
                   activeCategory === cat.category
                     ? 'bg-gradient-to-r from-blue-500 to-cyan-500 text-white shadow-lg shadow-blue-500/25'
                     : 'bg-white/5 text-gray-600 dark:text-gray-400 border border-white/10 hover:bg-white/10 hover:text-gray-900 dark:hover:text-white'
@@ -286,7 +286,7 @@ export function Skills() {
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >
-                <Icon className="w-4 h-4" />
+                <Icon className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
                 {cat.category}
               </motion.button>
             );

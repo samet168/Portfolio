@@ -25,15 +25,15 @@
   "about": {
     "title": "About Me",
     "subtitle": "Get to know me better",
-    "biography": "I'm a third-year computer science student at RUPP with a strong passion for web development and creating functional, user-friendly web experiences.",
+    "biography": "I'm a fourth-year computer science student at RUPP with a strong passion for web development and creating functional, user-friendly web experiences.",
     "passion": "I enjoy learning new technologies and applying them to build clean, efficient, and visually appealing projects. I'm eager to collaborate, improve my skills, and contribute to meaningful projects.",
     "personalInfo": {
       "name": "Name",
       "email": "Email",
       "location": "Location",
       "availability": "Availability"
-    },
-    "downloadCV": "Download CV"
+    }
+    
   },
   "skills": {
     "title": "Skills",

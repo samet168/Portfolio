@@ -205,3 +205,28 @@ body {
     font-size: 18px;
   }
 }
+
+/* Mobile App Utilities */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.safe-bottom {
+  padding-bottom: max(env(safe-area-inset-bottom, 16px), 16px);
+}
+
+.safe-top {
+  padding-top: max(env(safe-area-inset-top, 16px), 16px);
+}
+
+@layer utilities {
+  .touch-tap-highlight-none {
+    -webkit-tap-highlight-color: transparent;
+  }
+}
+

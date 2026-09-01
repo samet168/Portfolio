@@ -2,6 +2,7 @@
 
 import { motion } from 'framer-motion';
 import { Heart, Mail, ArrowUp } from 'lucide-react';
+import Image from 'next/image';
 import { useTranslation } from '@/hooks/use-translation';
 
 // SVG social icons
@@ -39,12 +40,22 @@ export function Footer() {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="py-12 border-t border-gray-200 dark:border-gray-800">
+    <footer className="pt-12 pb-24 md:pb-12 border-t border-gray-200 dark:border-gray-800">
       <div className="container mx-auto px-4">
         <div className="grid md:grid-cols-3 gap-8 mb-8">
           {/* Brand */}
           <div className="space-y-4">
-            <div className="text-2xl font-bold gradient-text">Moeun Samet</div>
+            <div className="flex items-center gap-3">
+              <div className="relative w-10 h-10 rounded-full overflow-hidden border-2 border-blue-500/50">
+                <Image
+                  src="/images/hero/profile.jpg"
+                  alt="Moeun Samet"
+                  fill
+                  className="object-cover"
+                />
+              </div>
+              <div className="text-2xl font-bold gradient-text">Moeun Samet</div>
+            </div>
             <p className="text-gray-600 dark:text-gray-400 text-sm">
               Full Stack Developer passionate about creating beautiful and functional web experiences.
             </p>
@@ -124,7 +135,7 @@ export function Footer() {
                 <FacebookSvg className="w-5 h-5" />
               </motion.a>
               <motion.a
-                href="mailto:contact@example.com"
+                href="mailto:samet.moeun9@gmail.com"
                 className="w-10 h-10 rounded-full glass flex items-center justify-center text-gray-600 dark:text-gray-400 hover:text-blue-500 transition-all"
                 whileHover={{ scale: 1.1, rotate: 5 }}
                 whileTap={{ scale: 0.95 }}

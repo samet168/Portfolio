@@ -240,35 +240,34 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
 
             {/* Actions */}
             <div className="flex gap-2 pt-2 mt-auto">
-              <Link href={`/projects/${project.slug}`} className="flex-1">
-                <motion.button
-                  className="w-full px-4 py-2.5 rounded-xl text-sm font-semibold bg-gradient-to-r from-blue-500 to-cyan-500 text-white hover:shadow-lg hover:shadow-blue-500/25 transition-shadow"
-                  whileHover={{ scale: 1.02 }}
-                  whileTap={{ scale: 0.98 }}
-                >
-                  View Details
-                </motion.button>
+              <Link
+                href={`/projects/${project.slug}`}
+                className="flex-1 px-4 py-2.5 rounded-xl text-sm font-semibold bg-gradient-to-r from-blue-500 to-cyan-500 text-white text-center hover:shadow-lg hover:shadow-blue-500/25 transition-all duration-300 active:scale-95 flex items-center justify-center"
+              >
+                View Details
               </Link>
               {project.liveUrl && (
-                <a href={project.liveUrl} target="_blank" rel="noopener noreferrer">
-                  <motion.button
-                    className="px-3 py-2.5 rounded-xl text-sm border border-white/10 text-gray-700 dark:text-gray-300 hover:bg-white/5 transition-colors"
-                    whileHover={{ scale: 1.05 }}
-                    whileTap={{ scale: 0.95 }}
-                  >
-                    <ExternalLink className="w-4 h-4" />
-                  </motion.button>
+                <a
+                  href={project.liveUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="px-3 py-2.5 rounded-xl text-sm border border-white/10 text-gray-700 dark:text-gray-300 hover:bg-white/5 transition-colors flex items-center justify-center active:scale-95"
+                  aria-label="Live Demo"
+                >
+                  <ExternalLink className="w-4 h-4" />
                 </a>
               )}
-              <a href={project.github.url} target="_blank" rel="noopener noreferrer">
-                <motion.button
-                  className="px-3 py-2.5 rounded-xl text-sm border border-white/10 text-gray-700 dark:text-gray-300 hover:bg-white/5 transition-colors"
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
+              {project.github.url && (
+                <a
+                  href={project.github.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="px-3 py-2.5 rounded-xl text-sm border border-white/10 text-gray-700 dark:text-gray-300 hover:bg-white/5 transition-colors flex items-center justify-center active:scale-95"
+                  aria-label="GitHub Repository"
                 >
                   <GithubIcon className="w-4 h-4" />
-                </motion.button>
-              </a>
+                </a>
+              )}
             </div>
           </div>
 
@@ -385,12 +384,12 @@ export default function ProjectsPage() {
               </div>
 
               {/* Category filter */}
-              <div className="flex flex-wrap gap-2 flex-1">
+              <div className="flex flex-nowrap sm:flex-wrap overflow-x-auto no-scrollbar gap-2 flex-1 pb-1">
                 {projectCategories.map((category) => (
                   <motion.button
                     key={category}
                     onClick={() => setActiveCategory(category)}
-                    className={`px-4 py-2 rounded-xl text-xs font-medium transition-all duration-300 ${
+                    className={`px-4 py-2 rounded-xl text-xs font-medium whitespace-nowrap shrink-0 transition-all duration-300 ${
                       activeCategory === category
                         ? 'bg-gradient-to-r from-blue-500 to-cyan-500 text-white shadow-lg shadow-blue-500/20'
                         : 'bg-white/5 text-gray-600 dark:text-gray-400 border border-white/10 hover:bg-white/10'

@@ -102,7 +102,7 @@ export function Contact() {
   };
 
   const copyEmail = () => {
-    navigator.clipboard.writeText('contact@example.com');
+    navigator.clipboard.writeText('samet.moeun9@gmail.com');
     setEmailCopied(true);
     setTimeout(() => setEmailCopied(false), 2000);
   };

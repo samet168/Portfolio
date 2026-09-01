@@ -2,7 +2,7 @@
 
 import { useRef } from 'react';
 import { motion, useMotionValue, useSpring, useTransform } from 'framer-motion';
-import { Download, Mail, Code2, Database, Globe, Layers, Monitor, ServerCog } from 'lucide-react';
+import { Mail, Code2, Database, Globe, Layers, Monitor, ServerCog } from 'lucide-react';
 import Image from 'next/image';
 import { useTranslation } from '@/hooks/use-translation';
 import { Button } from '@/components/ui/button';
@@ -82,7 +82,7 @@ export function Hero() {
     { icon: GithubSvg, href: 'https://github.com/samet168', label: 'GitHub' },
     { icon: LinkedinSvg, href: 'https://www.linkedin.com/feed/', label: 'LinkedIn' },
     { icon: FacebookSvg, href: 'https://web.facebook.com/samet.moeunsamet/', label: 'Facebook' },
-    { icon: Mail, href: 'mailto:contact@example.com', label: 'Email' },
+    { icon: Mail, href: 'mailto:samet.moeun9@gmail.com', label: 'Email' },
   ];
 
   return (
@@ -91,7 +91,7 @@ export function Hero() {
       ref={containerRef}
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
-      className="min-h-screen flex items-center justify-center relative overflow-hidden pt-20"
+      className="min-h-screen flex items-center justify-center relative overflow-hidden pt-20 sm:pt-24 pb-8 sm:pb-12"
     >
       {/* Background ambient glow */}
       <div className="absolute inset-0 pointer-events-none">
@@ -100,13 +100,13 @@ export function Hero() {
       </div>
 
       <div className="container mx-auto px-4 relative z-10">
-        <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+        <div className="grid lg:grid-cols-2 gap-8 sm:gap-12 lg:gap-16 items-center">
           {/* Left content */}
           <motion.div
             initial={{ opacity: 0, x: -50 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8 }}
-            className="space-y-8 order-2 lg:order-1"
+            className="space-y-5 sm:space-y-8 order-2 lg:order-1 text-center lg:text-left"
           >
             {/* Greeting */}
             <motion.div
@@ -114,9 +114,9 @@ export function Hero() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.2 }}
             >
-              <p className="text-blue-500 font-medium tracking-wider uppercase text-sm">
+              <span className="inline-block px-3 py-1 rounded-full text-xs font-semibold uppercase tracking-wider bg-blue-500/10 text-blue-500 border border-blue-500/20">
                 {t('hero.greeting')}
-              </p>
+              </span>
             </motion.div>
 
             {/* Name */}
@@ -124,7 +124,7 @@ export function Hero() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.3 }}
-              className="text-5xl md:text-7xl font-bold leading-tight"
+              className="text-4xl sm:text-5xl md:text-7xl font-bold leading-tight"
             >
               <span className="gradient-text">{t('hero.name')}</span>
             </motion.h1>
@@ -134,7 +134,7 @@ export function Hero() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.4 }}
-              className="text-2xl md:text-3xl text-gray-600 dark:text-gray-400"
+              className="text-xl sm:text-2xl md:text-3xl text-gray-600 dark:text-gray-400"
             >
               <span className="font-semibold">{t('hero.title')}</span>
             </motion.div>
@@ -144,7 +144,7 @@ export function Hero() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.5 }}
-              className="text-lg text-gray-600 dark:text-gray-400 max-w-xl leading-relaxed"
+              className="text-sm sm:text-base md:text-lg text-gray-600 dark:text-gray-400 max-w-xl leading-relaxed mx-auto lg:mx-0"
             >
               {t('hero.description')}
             </motion.p>
@@ -154,15 +154,11 @@ export function Hero() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.6 }}
-              className="flex flex-wrap gap-4"
+              className="flex flex-wrap justify-center lg:justify-start gap-4 pt-1"
             >
-              <Button size="lg" onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}>
+              <Button size="lg" className="w-full sm:w-auto shadow-lg shadow-blue-500/25 active:scale-95" onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}>
                 {t('hero.cta')}
               </Button>
-              {/* <Button variant="outline" size="lg">
-                <Download className="w-4 h-4 mr-2" />
-                {t('hero.downloadCV')}
-              </Button> */}
             </motion.div>
 
             {/* Social Links */}
@@ -170,7 +166,7 @@ export function Hero() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.7 }}
-              className="flex gap-4"
+              className="flex justify-center lg:justify-start gap-3 sm:gap-4 pt-2"
             >
               {socialLinks.map((social, index) => (
                 <motion.a
@@ -178,9 +174,9 @@ export function Hero() {
                   href={social.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-12 h-12 rounded-full glass flex items-center justify-center text-gray-600 dark:text-gray-400 hover:text-blue-500 transition-all"
+                  className="w-11 h-11 sm:w-12 sm:h-12 rounded-full glass flex items-center justify-center text-gray-600 dark:text-gray-400 hover:text-blue-500 transition-all active:scale-90"
                   whileHover={{ scale: 1.1, rotate: 5 }}
-                  whileTap={{ scale: 0.95 }}
+                  whileTap={{ scale: 0.9 }}
                   initial={{ opacity: 0, scale: 0 }}
                   animate={{ opacity: 1, scale: 1 }}
                   transition={{ delay: 0.8 + index * 0.1 }}
@@ -197,9 +193,9 @@ export function Hero() {
             initial={{ opacity: 0, x: 50 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, delay: 0.3 }}
-            className="relative flex justify-center order-1 lg:order-2"
+            className="relative flex justify-center order-1 lg:order-2 my-2 lg:my-0"
           >
-            <div className="relative w-72 h-72 md:w-[360px] md:h-[360px] lg:w-[420px] lg:h-[420px]">
+            <div className="relative w-56 h-56 sm:w-72 sm:h-72 md:w-[360px] md:h-[360px] lg:w-[420px] lg:h-[420px]">
               {/* Animated glow ring */}
               <motion.div
                 className="absolute inset-0 rounded-full"

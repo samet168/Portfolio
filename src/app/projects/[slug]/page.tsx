@@ -1035,14 +1035,11 @@ function ProjectNavigation({ currentSlug }: { currentSlug: string }) {
           ) : <div className="flex-1" />}
 
           {/* Back to portfolio */}
-          <Link href="/projects">
-            <motion.button
-              className="px-5 py-2.5 rounded-xl text-sm font-medium border border-white/10 text-gray-600 dark:text-gray-400 hover:border-blue-500/30 hover:text-blue-400 transition-all"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-            >
-              All Projects
-            </motion.button>
+          <Link
+            href="/projects"
+            className="px-5 py-2.5 rounded-xl text-sm font-medium border border-white/10 text-gray-600 dark:text-gray-400 hover:border-blue-500/30 hover:text-blue-400 hover:scale-105 active:scale-95 transition-all flex items-center justify-center"
+          >
+            All Projects
           </Link>
 
           {/* Next */}
@@ -1139,14 +1136,11 @@ export default function ProjectDetailPage({ params }: { params: Promise<{ slug: 
         <div className="text-center">
           <h1 className="text-4xl font-bold gradient-text mb-4">Project Not Found</h1>
           <p className="text-gray-500 dark:text-gray-400 mb-8">The project you&apos;re looking for doesn&apos;t exist.</p>
-          <Link href="/projects">
-            <motion.button
-              className="px-6 py-3 rounded-xl font-semibold bg-gradient-to-r from-blue-500 to-cyan-500 text-white"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-            >
-              Back to Projects
-            </motion.button>
+          <Link
+            href="/projects"
+            className="inline-block px-6 py-3 rounded-xl font-semibold bg-gradient-to-r from-blue-500 to-cyan-500 text-white hover:scale-105 active:scale-95 transition-all"
+          >
+            Back to Projects
           </Link>
         </div>
       </div>

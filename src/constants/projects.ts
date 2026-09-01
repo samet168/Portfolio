@@ -152,6 +152,365 @@ export const projects: Project[] = [
   //   order: 1,
   // },
   {
+    id: 'pharmacy-pos-system',
+    slug: 'pharmacy-pos-system',
+    title: 'Pharmacy POS System',
+    shortDescription:
+      'A pharmacy point of sale and inventory management system built with Spring Boot, PostgreSQL, and Next.js.',
+    longDescription:
+      'Pharmacy POS System is a full-stack web application designed to manage pharmacy retail operations. It features real-time inventory tracking, expiration date monitoring, RESTful API endpoints built with Spring Boot, secure authentication, and a responsive Next.js frontend for fast cashier checkouts.',
+    category: 'POS & Management System',
+    status: 'completed',
+    image: '/images/pharmacy-pos.png',
+    gradient: 'from-emerald-600 via-teal-500 to-cyan-400',
+    accentColor: '#059669',
+    technologies: [
+      'Java',
+      'Spring Boot',
+      'PostgreSQL',
+      'Next.js',
+      'Tailwind CSS',
+      'Cloudinary'
+    ],
+    features: [
+      'POS Checkout & Invoicing',
+      'Inventory & Stock Control',
+      'Expiry Date Tracking',
+      'Prescription & Patient Management',
+      'Low Stock Alert',
+      'Sales & Profit Reports',
+      'Cloudinary Media Upload'
+    ],
+    architecture: {
+      frontend: 'Next.js / Tailwind CSS',
+      backend: 'Java Spring Boot',
+      api: 'RESTful API',
+      database: 'PostgreSQL',
+      deployment: 'Vercel / Render'
+    },
+    timeline: [
+      {
+        phase: 'Planning & Database Design',
+        duration: '1 Week',
+        description: 'Designed relational database schemas for products, stock batches, and sales transactions using PostgreSQL.'
+      },
+      {
+        phase: 'Backend Development',
+        duration: '3 Weeks',
+        description: 'Built REST API endpoints, JPA models, services, and DTOs using Spring Boot for inventory and sales logic.'
+      },
+      {
+        phase: 'Frontend Development',
+        duration: '3 Weeks',
+        description: 'Developed Next.js pages and components for the POS interface, cart management, and product search.'
+      },
+      {
+        phase: 'Integration & Testing',
+        duration: '1 Week',
+        description: 'Connected Next.js frontend with Spring Boot backend and tested stock deduction workflows.'
+      },
+      {
+        phase: 'Deployment',
+        duration: '2 Days',
+        description: 'Deployed the application services.'
+      }
+    ],
+    challenges: [
+      {
+        problem: 'Handling concurrent stock updates and tracking medicine expiration dates accurately.',
+        solution:
+          'Implemented Spring Data JPA transactions and business validation rules in the backend services to ensure data integrity.',
+        lesson:
+          'Robust backend transaction management is essential for point-of-sale inventory accuracy.'
+      },
+      {
+        problem: 'Managing product image uploads and fast page rendering on the POS interface.',
+        solution:
+          'Integrated Cloudinary for efficient media storage and leveraged Next.js App Router for optimized component rendering and fast product searching.',
+        lesson:
+          'Next.js routing and server-side features enhance performance for data-heavy dashboard applications.'
+      }
+    ],
+    teamSize: 1,
+    myRole: 'Full Stack Developer',
+    difficulty: 'intermediate',
+    isResponsive: true,
+    hasDarkMode: true,
+    github: {
+      repoName: 'Pharmacy POS System',
+      repoDescription: 'Pharmacy POS system built with Spring Boot, PostgreSQL, and Next.js.',
+      stars: 0,
+      language: 'Java / JavaScript',
+      lastUpdated: '2026',
+      url: 'https://github.com/samet168/Pharmacy-POS-Backend'
+    },
+    frontendUrl: 'https://github.com/samet168/Pharmacy-POS-Frontend',
+    backendUrl: 'https://github.com/samet168/Pharmacy-POS-Backend',
+    viewUrl: 'https://pharmacy-pos-frontend-eight.vercel.app/',
+    overview: {
+      introduction:
+        'Pharmacy POS System is a customized solution built to streamline medication sales, stock management, and prescription tracking.',
+      problem:
+        'Manual tracking of medicine expiration dates and stock levels leads to operational inefficiencies and errors.',
+      solution:
+        'Engineered a Spring Boot and Next.js application featuring automated stock deduction and structured sales processing.',
+      goal:
+        'Apply enterprise-level backend architecture and modern frontend tools to solve real-world retail problems.',
+      keyFeatures: [
+        'Spring Boot REST APIs',
+        'PostgreSQL Database Management',
+        'Next.js POS Interface',
+        'Expiry Date & Batch Tracking',
+        'Sales & Inventory Reports'
+      ]
+    },
+    gallery: [
+      '/images/pharmacy-pos.png'
+    ],
+    featured: true,
+    order: 4
+  },
+  {
+    id: 'pos-system-manager',
+    slug: 'pos-system-manager',
+    title: 'POS System Manager',
+    shortDescription:
+      'An enterprise POS and business administration platform built with Python FastAPI, PostgreSQL, and Next.js.',
+    longDescription:
+      'POS System Manager is a comprehensive full-stack business management and POS platform. It features a POS terminal, HR management, attendance tracking, advanced inventory control, procurement, payroll, and multi-layered financial reporting dashboards powered by Python FastAPI and a responsive Next.js frontend.',
+    category: 'POS & Management System',
+    status: 'completed',
+    image: '/images/pos-system-managermat.png',
+    gradient: 'from-blue-600 via-indigo-500 to-cyan-400',
+    accentColor: '#2563EB',
+    technologies: [
+      'Python',
+      'FastAPI',
+      'PostgreSQL',
+      'Alembic',
+      'Next.js',
+      'Tailwind CSS',
+      'RESTful API'
+    ],
+    features: [
+      'POS Terminal & Invoicing',
+      'HR & Employee Management',
+      'Attendance, Shifts & Leave Tracking',
+      'Inventory & Stock Movements',
+      'Procurement & Purchase Orders',
+      'Payroll, Expenses & Financial Journals',
+      'Role-Based Access Control & Active Sessions',
+      'Responsive User Interface'
+    ],
+    architecture: {
+      frontend: 'Next.js / Tailwind CSS',
+      backend: 'Python FastAPI',
+      api: 'RESTful API',
+      database: 'PostgreSQL / Alembic',
+      deployment: 'Vercel / Render'
+    },
+    timeline: [
+      {
+        phase: 'Planning & Architecture',
+        duration: '1 Week',
+        description: 'Designed comprehensive database schemas and system architecture for enterprise management.'
+      },
+      {
+        phase: 'Database Design',
+        duration: '1 Week',
+        description: 'Structured PostgreSQL models and migration workflows using Alembic.'
+      },
+      {
+        phase: 'Development',
+        duration: '5 Weeks',
+        description: 'Developed FastAPI backend endpoints and Next.js dashboard interfaces.'
+      },
+      {
+        phase: 'Testing',
+        duration: '5 Days',
+        description: 'Tested multi-role authentication, API integration, and POS checkout workflows.'
+      },
+      {
+        phase: 'Deployment',
+        duration: '2 Days',
+        description: 'Deployed backend services to Render and frontend client to Vercel.'
+      }
+    ],
+    challenges: [
+      {
+        problem: 'Handling complex relational modules including HR, multi-warehouse inventory, and financial ledger tracking efficiently.',
+        solution: 'Structured modular FastAPI routers and optimized PostgreSQL queries to handle complex joins and aggregation.',
+        lesson: 'Clear domain-driven structure in FastAPI drastically improves maintainability for large-scale enterprise applications.'
+      },
+      {
+        problem: 'Building a responsive admin dashboard with dense data visualization and real-time attendance tracking.',
+        solution: 'Leveraged Next.js component architecture and responsive CSS grids with Tailwind to ensure smooth rendering.',
+        lesson: 'Modular UI component design simplifies handling extensive data tables and visual analytics charts.'
+      }
+    ],
+    teamSize: 1,
+    myRole: 'Full Stack Developer',
+    difficulty: 'advanced',
+    isResponsive: true,
+    hasDarkMode: true,
+    github: {
+      repoName: 'POS System Manager',
+      repoDescription: 'Enterprise POS and Business Management System built with Python FastAPI and Next.js.',
+      stars: 0,
+      language: 'Python / JavaScript',
+      lastUpdated: '2026',
+      url: 'https://github.com/samet168/pos_system_managermat_back_-saas-'
+    },
+    frontendUrl: 'https://github.com/samet168/pos_system_managermat_back_-saas-',
+    backendUrl: 'hhttps://github.com/samet168/pos_system_managermat_fornt_-saas-',
+    viewUrl: 'https://pos-system-managermat-fornt-saas-u1.vercel.app/',
+    demoAccount: {
+      email: 'admin',
+      password: 'Admin@123'
+    },
+    overview: {
+      introduction:
+        'POS System Manager is a robust enterprise tool built to unify retail point-of-sale operations, HR, inventory, procurement, and financial accounting into a single platform.',
+      problem:
+        'Businesses often struggle with fragmented software for sales, employee tracking, and inventory control, leading to administrative overhead.',
+      solution:
+        'Engineered an all-in-one platform using Python FastAPI and Next.js that synchronizes sales, stock levels, payroll, and analytics.',
+      goal:
+        'Create a production-ready, highly secure enterprise system demonstrating advanced backend structuring and dashboard design.',
+      keyFeatures: [
+        'FastAPI RESTful Architecture',
+        'Next.js Dynamic Dashboard',
+        'HR & Attendance Control',
+        'Inventory & Warehouse Tracking',
+        'Financial Journal & Payroll Management'
+      ]
+    },
+    gallery: [
+    '/images/pos-system-managermat.png',
+    ],
+    featured: true,
+    order: 3
+  },
+  {
+    id: 'render-keepalive-hub',
+    slug: 'render-keepalive-hub',
+    title: 'Render 24/7 Keep-Alive Hub',
+    shortDescription:
+      'A serverless automated cron monitoring hub built with Cloudflare Workers, Native Edge Crons, and Neon PostgreSQL.',
+    longDescription:
+      'Render 24/7 Keep-Alive Hub is a cloud edge automation and monitoring service built with Cloudflare Workers. It uses native Edge Cron triggers to ping and maintain Render and free-tier backend deployments active 24/7, eliminating cold starts and sleep states. Target URLs and response statistics are persisted in Neon Serverless PostgreSQL with a fast, responsive edge management dashboard.',
+    category: 'Web Application',
+    status: 'completed',
+    image: '/images/Keep-Alive Hub.png',
+    gradient: 'from-amber-500 via-orange-500 to-red-500',
+    accentColor: '#F38020',
+    technologies: [
+      'Cloudflare Workers',
+      'TypeScript',
+      'Edge Cron',
+      'Neon PostgreSQL',
+      'Serverless',
+      'REST API',
+      'Tailwind CSS'
+    ],
+    features: [
+      'Cloudflare Native Edge Cron Automation',
+      'Automated 10-Min Keep-Alive Pings',
+      'Render & Free-Tier Service Awake 24/7',
+      'Zero Cold Start Latency Prevention',
+      'Neon Serverless PostgreSQL Database',
+      'Target URL Registration Dashboard',
+      'Real-Time Health Status Monitoring'
+    ],
+    architecture: {
+      frontend: 'HTML5 / Modern Edge UI',
+      backend: 'Cloudflare Workers (Edge Serverless)',
+      api: 'Cloudflare Worker REST API',
+      database: 'Neon Serverless PostgreSQL',
+      deployment: 'Cloudflare Workers Edge Network'
+    },
+    timeline: [
+      {
+        phase: 'Problem Identification',
+        duration: '2 Days',
+        description: 'Analyzed cold-start delays and inactivity timeouts on Render free-tier hosting services.'
+      },
+      {
+        phase: 'Architecture Design',
+        duration: '3 Days',
+        description: 'Designed edge-based cron scheduler on Cloudflare Workers paired with Neon serverless database.'
+      },
+      {
+        phase: 'Worker & Cron Implementation',
+        duration: '1 Week',
+        description: 'Developed TypeScript worker handlers for scheduled cron triggers, ping routines, and target management.'
+      },
+      {
+        phase: 'Database & UI Integration',
+        duration: '3 Days',
+        description: 'Integrated Neon PostgreSQL driver and created responsive dashboard for registering target services.'
+      },
+      {
+        phase: 'Deployment & Global Testing',
+        duration: '2 Days',
+        description: 'Deployed to Cloudflare Workers edge network with 24/7 automated cron validation.'
+      }
+    ],
+    challenges: [
+      {
+        problem: 'Reliably pinging multiple backend URLs without exceeding serverless execution limits.',
+        solution:
+          'Utilized Cloudflare Workers lightweight asynchronous fetch batching within edge scheduled event handlers.',
+        lesson:
+          'Edge serverless computing provides minimal latency and highly cost-effective automated background cron processing.'
+      },
+      {
+        problem: 'Serverless database connection management on edge runtimes.',
+        solution:
+          'Integrated Neon Serverless PostgreSQL over HTTPS / WebSockets pooling for fast connection handling.',
+        lesson:
+          'Serverless SQL databases pair efficiently with distributed edge compute runtimes.'
+      }
+    ],
+    teamSize: 1,
+    myRole: 'Full Stack & Cloud Developer',
+    difficulty: 'intermediate',
+    isResponsive: true,
+    hasDarkMode: true,
+    github: {
+      repoName: 'run-url',
+      repoDescription: 'Render 24/7 Keep-Alive Hub running on Cloudflare Workers with Native Edge Cron triggers.',
+      stars: 0,
+      language: 'TypeScript / JavaScript',
+      lastUpdated: '2026',
+      url: 'https://github.com/samet167/run-url'
+    },
+    liveUrl: 'https://render-keepalive-hub.samet-dev.workers.dev/',
+    // viewUrl: 'https://render-keepalive-hub.samet-dev.workers.dev/',
+    overview: {
+      introduction:
+        'Render 24/7 Keep-Alive Hub is an edge monitoring tool designed to keep serverless and cloud deployments awake continuously.',
+      problem:
+        'Free-tier services like Render spin down after 15 minutes of inactivity, resulting in 50+ second cold start latency for users.',
+      solution:
+        'Deployed a Cloudflare Worker utilizing Edge Cron triggers every 10 minutes to auto-ping registered targets and keep them warm.',
+      goal:
+        'Ensure zero cold-start delay for full-stack portfolio backend demos and client showcase services.',
+      keyFeatures: [
+        'Native Edge Cron Trigger (Every 10 min)',
+        'Neon Serverless Database Integration',
+        'Add & Remove Monitored Target Deployments',
+        'Global Edge Network Reliability',
+        'Instant Cold Start Prevention'
+      ]
+    },
+    gallery: [
+      '/images/Keep-Alive Hub.png'
+    ],
+    featured: true,
+    order: 6
+  },
+  {
   id: 'phone-shop-management',
   slug: 'phone-shop-management',
   title: 'Phone Shop Management System',
@@ -437,7 +796,7 @@ export const projects: Project[] = [
   longDescription:
     'POS System Coffee is a full-stack web application designed for coffee shop management. The system allows staff to create customer orders, manage products and categories, generate invoices automatically, calculate bills, and monitor daily sales. It provides a responsive user interface and a secure backend for efficient business operations.',
 
-  category: 'Point of Sale',
+  category: 'POS & Management System',
 
   status: 'completed',
 
@@ -731,7 +1090,7 @@ export const projects: Project[] = [
     longDescription:
       'Attendance System is a full-stack web application designed to simplify attendance management for students and staff. The system provides an intuitive interface for recording attendance, managing users, viewing attendance history, and generating reports. It was developed using React.js for the frontend, Laravel for the backend, and MongoDB as the database.',
 
-    category: 'Management System',
+    category: 'POS & Management System',
 
     status: 'completed',
 
@@ -887,7 +1246,7 @@ export const projects: Project[] = [
     longDescription:
       'Khmer Update is a Khmer-language news website developed using Vue 3 and API integration. The website displays updated news content with a simple and user-friendly interface. This project demonstrates frontend development skills, API integration, and building dynamic web applications.',
 
-    category: 'News Website',
+    category: 'Web Application',
 
     status: 'completed',
 
@@ -1016,17 +1375,17 @@ export const projects: Project[] = [
     featured: true,
 
     order: 5
-  }
+  },
+
+
 ];
 
 export const projectCategories = [
   'All',
-  'Web Development',
-  'E-Commerce',
-  'Business Software',
-  'Desktop Application',
-  'AI & Education',
   'Web Application',
+  'POS & Management System',
+  'E-Commerce',
+  'Desktop Application',
 ];
 
 export function getProjectBySlug(slug: string): Project | undefined {

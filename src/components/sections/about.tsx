@@ -1,17 +1,16 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { Mail, MapPin, Calendar, Download, User } from 'lucide-react';
+import { Mail, MapPin, Calendar, User } from 'lucide-react';
 import { useTranslation } from '@/hooks/use-translation';
 import { Card } from '@/components/ui/card';
-import { Button } from '@/components/ui/button';
 
 export function About() {
   const { t } = useTranslation();
 
   const personalInfo = [
     { icon: User, label: t('about.personalInfo.name'), value: 'Moeun Samet' },
-    { icon: Mail, label: t('about.personalInfo.email'), value: 'contact@example.com' },
+    { icon: Mail, label: t('about.personalInfo.email'), value: 'samet.moeun9@gmail.com' },
     { icon: MapPin, label: t('about.personalInfo.location'), value: 'Phnom Penh, Cambodia' },
     { icon: Calendar, label: t('about.personalInfo.availability'), value: 'Available for work' },
   ];
@@ -103,18 +102,6 @@ export function About() {
                 ))}
               </div>
             </Card>
-
-            {/* Download CV Button */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-            >
-              <Button size="lg" className="w-full">
-                <Download className="w-4 h-4 mr-2" />
-                {t('about.downloadCV')}
-              </Button>
-            </motion.div>
           </motion.div>
 
           {/* Right Column - Timeline */}

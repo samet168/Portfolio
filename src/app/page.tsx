@@ -6,6 +6,7 @@ import { AnimatedBackground } from '@/components/animations/animated-background'
 import { LoadingScreen } from '@/components/animations/loading-screen';
 import { SmoothScroll, ScrollProgress } from '@/components/animations/smooth-scroll';
 import { Navbar } from '@/components/layout/navbar';
+import { MobileBottomNav } from '@/components/layout/bottom-nav';
 import { Footer } from '@/components/layout/footer';
 import { Hero } from '@/components/sections/hero';
 import { About } from '@/components/sections/about';
@@ -52,11 +53,11 @@ export default function Home() {
           {/* Scroll Progress Indicator */}
           <ScrollProgress />
 
-          {/* Navbar */}
+          {/* Top Navbar */}
           <Navbar />
 
           {/* Main Content */}
-          <main>
+          <main className="pb-16 md:pb-0">
             <Hero />
             <About />
             <Skills />
@@ -68,6 +69,9 @@ export default function Home() {
 
           {/* Footer */}
           <Footer />
+
+          {/* Mobile Bottom App Navigation */}
+          <MobileBottomNav />
         </SmoothScroll>
       </div>
     </>
