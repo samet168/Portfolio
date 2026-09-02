@@ -153,7 +153,7 @@ function ProjectHero({ project }: { project: Project }) {
           transition={{ delay: 0.8 }}
           className="flex flex-wrap gap-4"
         >
-          {project.liveUrl && (
+          {project.liveUrl && project.liveUrl !== project.viewUrl && (
             <a href={project.liveUrl} target="_blank" rel="noopener noreferrer">
               <motion.button
                 className="inline-flex items-center gap-2 px-6 py-3 rounded-xl font-semibold bg-gradient-to-r from-blue-500 to-cyan-500 text-white shadow-lg shadow-blue-500/25 hover:shadow-blue-500/40 transition-shadow"

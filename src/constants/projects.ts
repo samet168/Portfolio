@@ -271,6 +271,125 @@ export const projects: Project[] = [
     order: 4
   },
   {
+    id: 'pharmacy-front-office',
+    slug: 'pharmacy-front-office',
+    title: 'Pharmacy Front-Office & Doctor Appointment',
+    shortDescription:
+      'A patient consultation portal and doctor appointment booking platform integrated with healthcare and pharmacy services.',
+    longDescription:
+      'Pharmacy Front-Office is a modern healthcare web application designed for patients to explore medical services, book appointments with specialized doctors, schedule consultations, and access pharmacy health advice. Built with a responsive Next.js frontend and integrated with Spring Boot RESTful APIs and PostgreSQL, it streamlines communication between patients and healthcare professionals.',
+    category: 'Web Application',
+    status: 'completed',
+    image: '/images/pharmacy-front-office.png',
+    gradient: 'from-teal-500 via-cyan-500 to-blue-500',
+    accentColor: '#0D9488',
+    technologies: [
+      'Next.js',
+      'TypeScript',
+      'Tailwind CSS',
+      'Spring Boot',
+      'PostgreSQL',
+      'Google Cloud',
+      'RESTful API'
+    ],
+    features: [
+      'Online Doctor Appointment Booking',
+      'Doctor Specialties & Availability Schedule',
+      'Patient Consultation Management',
+      'Prescription & Medication Guidance',
+      'Real-Time Appointment Status',
+      'Responsive Mobile-Friendly Patient Portal'
+    ],
+    architecture: {
+      frontend: 'Next.js / TypeScript / Tailwind CSS',
+      backend: 'Java Spring Boot',
+      api: 'RESTful API',
+      database: 'PostgreSQL',
+      deployment: 'Google Cloud Platform (GCP) / Vercel'
+    },
+    timeline: [
+      {
+        phase: 'Requirements & User Flow',
+        duration: '1 Week',
+        description: 'Analyzed patient booking workflows and doctor availability scheduling requirements.'
+      },
+      {
+        phase: 'Backend Booking APIs',
+        duration: '2 Weeks',
+        description: 'Developed Spring Boot REST endpoints for managing doctor schedules, appointments, and patient records.'
+      },
+      {
+        phase: 'Frontend Patient Portal',
+        duration: '2.5 Weeks',
+        description: 'Built Next.js portal with doctor profile discovery, interactive calendar date pickers, and appointment forms.'
+      },
+      {
+        phase: 'Testing & Integration',
+        duration: '1 Week',
+        description: 'Integrated frontend client with backend services and tested booking validation logic.'
+      },
+      {
+        phase: 'Deployment',
+        duration: '2 Days',
+        description: 'Deployed patient front-office application on Vercel.'
+      }
+    ],
+    challenges: [
+      {
+        problem: 'Handling concurrent booking requests and preventing double-booking of doctor time slots.',
+        solution:
+          'Implemented slot validation constraints and transactional booking operations on the Spring Boot backend.',
+        lesson:
+          'Strict transaction management ensures schedule integrity in healthcare booking systems.'
+      },
+      {
+        problem: 'Designing an accessible, intuitive appointment scheduling flow for all user demographics.',
+        solution:
+          'Created a streamlined step-by-step booking interface with clear doctor availability indicators and immediate confirmation.',
+        lesson:
+          'A user-centric UX reduces booking friction and enhances patient satisfaction.'
+      }
+    ],
+    teamSize: 1,
+    myRole: 'Full Stack Developer',
+    difficulty: 'intermediate',
+    isResponsive: true,
+    hasDarkMode: true,
+    github: {
+      repoName: 'Pharmacy-POS-Front-Office',
+      repoDescription: 'Pharmacy Front-Office patient portal and doctor appointment booking application.',
+      stars: 0,
+      language: 'TypeScript / Java',
+      lastUpdated: '2026',
+      url: 'https://github.com/samet168/Pharmacy-POS-Front-Office'
+    },
+    frontendUrl: 'https://github.com/samet168/Pharmacy-POS-Front-Office',
+    backendUrl: 'https://github.com/samet168/Pharmacy-POS-Backend',
+    viewUrl: 'https://pharmacy-pos-front-office.vercel.app/',
+    overview: {
+      introduction:
+        'Pharmacy Front-Office is a patient-facing web portal that enables quick and hassle-free doctor appointments and pharmacy consultations.',
+      problem:
+        'Patients frequently encounter long waiting times and communication barriers when attempting to book clinic visits manually.',
+      solution:
+        'Engineered an intuitive online portal where patients can select doctors by specialty, choose convenient time slots, and receive appointment confirmations.',
+      goal:
+        'Improve patient access to healthcare providers while modernizing clinic front-desk operations.',
+      keyFeatures: [
+        'Doctor Appointment Scheduling',
+        'Specialist Directory',
+        'Patient Consultation Portal',
+        'Prescription & Health Advice',
+        'Mobile-Optimized User Experience'
+      ]
+    },
+    gallery: [
+      '/images/pharmacy-front-office.png'
+    ],
+    featured: true,
+    order: 5
+  },
+  {
     id: 'pos-system-manager',
     slug: 'pos-system-manager',
     title: 'POS System Manager',
@@ -485,7 +604,6 @@ export const projects: Project[] = [
       lastUpdated: '2026',
       url: 'https://github.com/samet167/run-url'
     },
-    liveUrl: 'https://render-keepalive-hub.samet-dev.workers.dev/',
     viewUrl: 'https://render-keepalive-hub.samet-dev.workers.dev/',
     overview: {
       introduction:
