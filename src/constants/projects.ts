@@ -511,6 +511,124 @@ export const projects: Project[] = [
     order: 6
   },
   {
+    id: 'video-downloader',
+    slug: 'video-downloader',
+    title: 'Multi-Platform Video Downloader',
+    shortDescription:
+      'A high-performance full-stack media extraction and video downloader web app supporting YouTube, TikTok, Facebook, and Instagram.',
+    longDescription:
+      'Multi-Platform Video Downloader is a full-stack media extraction application designed for effortless video and audio processing across multiple platforms including YouTube, TikTok, Facebook, and Instagram. Built with a clean, responsive HTML, CSS, and JavaScript frontend powered by a Python backend extraction engine, it delivers multi-format downloads (1080p, 720p, 480p, MP3), instant media metadata previews, and direct streaming links.',
+    category: 'Web Application',
+    status: 'completed',
+    image: '/images/vdo.png',
+    gradient: 'from-violet-600 via-purple-500 to-indigo-400',
+    accentColor: '#8B5CF6',
+    technologies: [
+      'Python',
+      'HTML5',
+      'CSS3',
+      'JavaScript',
+      'Google Cloud',
+      'RESTful API'
+    ],
+    features: [
+      'Multi-Platform Video & Audio Extraction (YouTube, TikTok, Facebook, Instagram)',
+      'Multiple Resolution & Format Options (1080p, 720p, 480p, MP3)',
+      'Real-Time Media Metadata & Thumbnail Preview',
+      'High-Speed Media Streaming & Direct Download URLs',
+      'Clean Modern UI & Fully Responsive Design',
+      'RESTful API Communication between Frontend and Python Backend'
+    ],
+    architecture: {
+      frontend: 'HTML5 / CSS3 / Vanilla JavaScript',
+      backend: 'Python Backend Extraction Service',
+      api: 'RESTful API',
+      database: 'Stateless / In-Memory Cache',
+      deployment: 'Google Cloud Platform (GCP)'
+    },
+    timeline: [
+      {
+        phase: 'Architecture & Analysis',
+        duration: '3 Days',
+        description: 'Analyzed streaming protocols, media extraction methods, and REST API request workflows for social media video platforms.'
+      },
+      {
+        phase: 'Python Backend Development',
+        duration: '1.5 Weeks',
+        description: 'Developed Python backend endpoints to parse video URLs, fetch media streams, and generate direct download links.'
+      },
+      {
+        phase: 'Frontend UI Development',
+        duration: '1 Week',
+        description: 'Built clean, responsive web interface using HTML5, CSS3, and JavaScript with interactive input handling and format cards.'
+      },
+      {
+        phase: 'Testing & Optimization',
+        duration: '4 Days',
+        description: 'Connected JavaScript frontend with Python backend API and optimized video extraction speed.'
+      },
+      {
+        phase: 'Deployment',
+        duration: '2 Days',
+        description: 'Deployed Python backend service and hosted client infrastructure on Google Cloud Platform.'
+      }
+    ],
+    challenges: [
+      {
+        problem: 'Handling rate limiting and dynamic video URL changes across different media platforms.',
+        solution:
+          'Structured resilient Python backend extraction routines with error handling, format fallback logic, and stream caching.',
+        lesson:
+          'Decoupling the frontend interface from the Python extraction engine ensures flexibility when updating platform parsers.'
+      },
+      {
+        problem: 'Providing instant visual feedback and media metadata preview before downloading large files.',
+        solution:
+          'Implemented asynchronous JavaScript fetch queries to retrieve lightweight preview metadata before requesting full download streams.',
+        lesson:
+          'Asynchronous metadata fetching provides a smooth user experience without blocking browser interactions.'
+      }
+    ],
+    teamSize: 1,
+    myRole: 'Full Stack Developer',
+    difficulty: 'intermediate',
+    isResponsive: true,
+    hasDarkMode: true,
+    github: {
+      repoName: 'video-downloader-Frontend',
+      repoDescription: 'Multi-platform video and audio downloader built with Python, HTML, CSS, and JavaScript.',
+      stars: 0,
+      language: 'Python / JavaScript',
+      lastUpdated: '2026',
+      url: 'https://github.com/samet167/video-downloader-Frontend'
+    },
+    frontendUrl: 'https://github.com/samet167/video-downloader-Frontend',
+    backendUrl: 'https://github.com/samet167/video-downloader-backend',
+    viewUrl: 'https://render-keepalive-hub.samet-dev.workers.dev',
+    overview: {
+      introduction:
+        'Multi-Platform Video Downloader is a modern web tool built to extract and download high-definition videos and audio from popular social media platforms.',
+      problem:
+        'Many online video downloaders are cluttered with intrusive ads, slow speeds, and limited platform support.',
+      solution:
+        'Created a clean, ad-free, high-performance web downloader utilizing a Python backend engine and responsive HTML/CSS/JavaScript frontend.',
+      goal:
+        'Deliver a fast, responsive, and user-friendly media extraction tool while demonstrating core full-stack web development skills in Python and JavaScript.',
+      keyFeatures: [
+        'Multi-Platform Video Support',
+        'HD Quality & Audio MP3 Options',
+        'Direct Download Links',
+        'Instant Thumbnail & Title Preview',
+        'Mobile & Desktop Optimized UI'
+      ]
+    },
+    gallery: [
+      '/images/vdo.png'
+    ],
+    featured: true,
+    order: 7
+  },
+  {
   id: 'phone-shop-management',
   slug: 'phone-shop-management',
   title: 'Phone Shop Management System',
