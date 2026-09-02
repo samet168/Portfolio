@@ -520,7 +520,7 @@ export const projects: Project[] = [
       'Render 24/7 Keep-Alive Hub is a cloud edge automation and monitoring service built with Cloudflare Workers. It uses native Edge Cron triggers to ping and maintain Render and free-tier backend deployments active 24/7, eliminating cold starts and sleep states. Target URLs and response statistics are persisted in Neon Serverless PostgreSQL with a fast, responsive edge management dashboard.',
     category: 'Web Application',
     status: 'completed',
-    image: '/images/Keep-Alive Hub.png',
+    image: '/images/keepalive-hub.png',
     gradient: 'from-amber-500 via-orange-500 to-red-500',
     accentColor: '#F38020',
     technologies: [
@@ -623,7 +623,7 @@ export const projects: Project[] = [
       ]
     },
     gallery: [
-      '/images/Keep-Alive Hub.png'
+      '/images/keepalive-hub.png'
     ],
     featured: true,
     order: 6
@@ -722,7 +722,7 @@ export const projects: Project[] = [
     },
     frontendUrl: 'https://github.com/samet167/video-downloader-Frontend',
     backendUrl: 'https://github.com/samet167/video-downloader-backend',
-    viewUrl: 'https://render-keepalive-hub.samet-dev.workers.dev',
+    viewUrl: 'https://videodown-2jq.pages.dev/',
     overview: {
       introduction:
         'Multi-Platform Video Downloader is a modern web tool built to extract and download high-definition videos and audio from popular social media platforms.',

@@ -44,8 +44,10 @@ export function LoadingScreen({ onComplete }: LoadingScreenProps) {
                 src="/images/hero/profile.jpg"
                 alt="Moeun Samet"
                 fill
+                sizes="80px"
                 className="object-cover"
                 priority
+                loading="eager"
               />
             </div>
           </div>

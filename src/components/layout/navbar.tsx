@@ -89,8 +89,10 @@ export function Navbar() {
                   src="/images/hero/profile.jpg"
                   alt="Moeun Samet"
                   fill
+                  sizes="40px"
                   className="object-cover"
                   priority
+                  loading="eager"
                 />
               </div>
               <span className="font-bold text-sm sm:text-base gradient-text">Moeun Samet</span>
@@ -263,6 +265,7 @@ export function Navbar() {
                       src="/images/hero/profile.jpg"
                       alt="Moeun Samet"
                       fill
+                      sizes="48px"
                       className="object-cover"
                     />
                   </div>

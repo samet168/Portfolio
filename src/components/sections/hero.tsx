@@ -228,6 +228,7 @@ export function Hero() {
                   sizes="(max-width: 768px) 288px, (max-width: 1024px) 360px, 420px"
                   className="object-cover"
                   priority
+                  loading="eager"
                 />
                 {/* Glass overlay on image */}
                 <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent" />

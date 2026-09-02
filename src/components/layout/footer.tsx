@@ -51,6 +51,7 @@ export function Footer() {
                   src="/images/hero/profile.jpg"
                   alt="Moeun Samet"
                   fill
+                  sizes="40px"
                   className="object-cover"
                 />
               </div>

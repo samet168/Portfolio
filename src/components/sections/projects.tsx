@@ -278,9 +278,9 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
               >
                 View Details
               </Link>
-              {project.liveUrl && (
+              {(project.liveUrl || project.viewUrl) && (
                 <a
-                  href={project.liveUrl}
+                  href={project.liveUrl || project.viewUrl}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="px-4 py-2.5 rounded-xl text-sm font-semibold border border-white/10 text-gray-700 dark:text-gray-300 hover:bg-white/5 transition-colors flex items-center justify-center active:scale-95"
