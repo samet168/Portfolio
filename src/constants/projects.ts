@@ -722,7 +722,7 @@ export const projects: Project[] = [
     },
     frontendUrl: 'https://github.com/samet167/video-downloader-Frontend',
     backendUrl: 'https://github.com/samet167/video-downloader-backend',
-    viewUrl: 'https://videodown-2jq.pages.dev/',
+    viewUrl: 'https://naturally-perspectives-college-specs.trycloudflare.com/',
     overview: {
       introduction:
         'Multi-Platform Video Downloader is a modern web tool built to extract and download high-definition videos and audio from popular social media platforms.',
