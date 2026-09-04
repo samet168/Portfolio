@@ -631,80 +631,81 @@ export const projects: Project[] = [
   {
     id: 'video-downloader',
     slug: 'video-downloader',
-    title: 'Multi-Platform Video Downloader',
+    title: 'Cloudflare Video Downloader',
     shortDescription:
-      'A high-performance full-stack media extraction and video downloader web app supporting YouTube, TikTok, Facebook, and Instagram.',
+      'A serverless full-stack media extraction and video downloader web app powered by Cloudflare Workers & Cloudflare Pages, supporting YouTube, TikTok, and Facebook.',
     longDescription:
-      'Multi-Platform Video Downloader is a full-stack media extraction application designed for effortless video and audio processing across multiple platforms including YouTube, TikTok, Facebook, and Instagram. Built with a clean, responsive HTML, CSS, and JavaScript frontend powered by a Python backend extraction engine, it delivers multi-format downloads (1080p, 720p, 480p, MP3), instant media metadata previews, and direct streaming links.',
+      'Cloudflare Video Downloader is a high-speed, serverless media extraction web application designed for seamless video and audio downloads from YouTube, TikTok, and Facebook. Built with a responsive HTML5, CSS3, and JavaScript frontend hosted on Cloudflare Pages and powered by a serverless Cloudflare Workers API backend, it delivers instant media metadata extraction, multi-resolution options (1080p, 720p, 480p, 360p, MP3 audio), and high-speed streaming downloads without requiring dedicated server infrastructure.',
     category: 'Web Application',
     status: 'completed',
     image: '/images/vdo.png',
-    gradient: 'from-violet-600 via-purple-500 to-indigo-400',
-    accentColor: '#8B5CF6',
+    gradient: 'from-orange-500 via-amber-500 to-yellow-400',
+    accentColor: '#F38020',
     technologies: [
-      'Python',
+      'JavaScript (ES6+)',
+      'Cloudflare Workers',
+      'Cloudflare Pages',
       'HTML5',
       'CSS3',
-      'JavaScript',
-      'Google Cloud',
       'RESTful API'
     ],
     features: [
-      'Multi-Platform Video & Audio Extraction (YouTube, TikTok, Facebook, Instagram)',
-      'Multiple Resolution & Format Options (1080p, 720p, 480p, MP3)',
-      'Real-Time Media Metadata & Thumbnail Preview',
-      'High-Speed Media Streaming & Direct Download URLs',
-      'Clean Modern UI & Fully Responsive Design',
-      'RESTful API Communication between Frontend and Python Backend'
+      'Multi-Platform Video & Audio Extraction (YouTube, TikTok, Facebook)',
+      '100% Serverless Edge Architecture on Cloudflare Global Network',
+      'Multi-Resolution & Format Options (1080p Full HD, 720p HD, 480p, 360p, MP3 Audio)',
+      'Instant Media Metadata & Thumbnail Preview',
+      'Fast Streaming & Direct Download URLs',
+      'Cross-Origin Resource Sharing (CORS) Enabled API',
+      'Clean Modern UI with Full Mobile & Desktop Responsiveness'
     ],
     architecture: {
-      frontend: 'HTML5 / CSS3 / Vanilla JavaScript',
-      backend: 'Python Backend Extraction Service',
-      api: 'RESTful API',
-      database: 'Stateless / In-Memory Cache',
-      deployment: 'Google Cloud Platform (GCP)'
+      frontend: 'HTML5 / CSS3 / Vanilla JavaScript (Cloudflare Pages)',
+      backend: 'Serverless Edge API (Cloudflare Workers)',
+      api: 'RESTful API / JSON Endpoints',
+      database: 'Stateless / Edge In-Memory Processing',
+      deployment: 'Cloudflare Global Edge Network'
     },
     timeline: [
       {
-        phase: 'Architecture & Analysis',
+        phase: 'Architecture & Protocol Analysis',
         duration: '3 Days',
-        description: 'Analyzed streaming protocols, media extraction methods, and REST API request workflows for social media video platforms.'
+        description: 'Analyzed streaming protocols, media extraction APIs, and CORS handling for social video platforms (YouTube, TikTok, Facebook).'
       },
       {
-        phase: 'Python Backend Development',
-        duration: '1.5 Weeks',
-        description: 'Developed Python backend endpoints to parse video URLs, fetch media streams, and generate direct download links.'
-      },
-      {
-        phase: 'Frontend UI Development',
+        phase: 'Serverless Worker Development',
         duration: '1 Week',
-        description: 'Built clean, responsive web interface using HTML5, CSS3, and JavaScript with interactive input handling and format cards.'
+        description: 'Developed Cloudflare Worker endpoints with custom extraction modules for parsing media metadata and direct video stream links.'
+      },
+      {
+        phase: 'Frontend UI & Integration',
+        duration: '4 Days',
+        description: 'Crafted responsive, ad-free UI using HTML5, CSS3, and JavaScript with instant format selection cards and preview thumbnails.'
       },
       {
         phase: 'Testing & Optimization',
-        duration: '4 Days',
-        description: 'Connected JavaScript frontend with Python backend API and optimized video extraction speed.'
+        duration: '3 Days',
+        description: 'Tested edge latency, format fallbacks, and mobile device compatibility across different network providers.'
       },
       {
-        phase: 'Deployment',
-        duration: '2 Days',
-        description: 'Deployed Python backend service and hosted client infrastructure on Google Cloud Platform.'
+        phase: 'Global Deployment',
+        duration: '1 Day',
+        description: 'Deployed serverless backend to Cloudflare Workers and frontend to Cloudflare Pages for 24/7 global availability.'
       }
     ],
     challenges: [
       {
-        problem: 'Handling rate limiting and dynamic video URL changes across different media platforms.',
+        problem: 'Executing media extraction within serverless environment constraints without heavy Python dependencies.',
         solution:
-          'Structured resilient Python backend extraction routines with error handling, format fallback logic, and stream caching.',
+          'Built lightweight JavaScript extractors and integrated reliable public extraction APIs directly inside Cloudflare Workers.',
         lesson:
-          'Decoupling the frontend interface from the Python extraction engine ensures flexibility when updating platform parsers.'
+          'Leveraging edge computing enables fast response times and zero server maintenance overhead.'
       },
       {
-        problem: 'Providing instant visual feedback and media metadata preview before downloading large files.',
+        problem: 'Handling cross-origin requests (CORS) and mobile network restrictions across different ISPs.',
         solution:
-          'Implemented asynchronous JavaScript fetch queries to retrieve lightweight preview metadata before requesting full download streams.',
+          'Configured full CORS preflight headers and standardized response formats on Cloudflare Workers for reliable client connections.',
         lesson:
-          'Asynchronous metadata fetching provides a smooth user experience without blocking browser interactions.'
+          'Proper CORS architecture and edge deployment ensure universal accessibility across mobile data and WiFi networks.'
       }
     ],
     teamSize: 1,
@@ -713,31 +714,29 @@ export const projects: Project[] = [
     isResponsive: true,
     hasDarkMode: true,
     github: {
-      repoName: 'video-downloader-Frontend',
-      repoDescription: 'Multi-platform video and audio downloader built with Python, HTML, CSS, and JavaScript.',
+      repoName: 'vdo-download-cloudflare',
+      repoDescription: 'Serverless multi-platform video and audio downloader powered by Cloudflare Workers & Cloudflare Pages.',
       stars: 0,
-      language: 'Python / JavaScript',
+      language: 'JavaScript',
       lastUpdated: '2026',
-      url: 'https://github.com/samet167/video-downloader-Frontend'
+      url: 'https://github.com/samet167/vdo-download-cloudflare'
     },
-    frontendUrl: 'https://github.com/samet167/video-downloader-Frontend',
-    backendUrl: 'https://github.com/samet167/video-downloader-backend',
-    viewUrl: 'https://vacancies-listed-for-pcs.trycloudflare.com/',
+    viewUrl: 'https://vdo-download.pages.dev/',
     overview: {
       introduction:
-        'Multi-Platform Video Downloader is a modern web tool built to extract and download high-definition videos and audio from popular social media platforms.',
+        'Cloudflare Video Downloader is a modern, serverless web tool engineered to extract and download high-definition videos and MP3 audio from YouTube, TikTok, and Facebook.',
       problem:
-        'Many online video downloaders are cluttered with intrusive ads, slow speeds, and limited platform support.',
+        'Traditional video downloader sites are often plagued by intrusive pop-up ads, slow backend processing, and frequent server downtimes.',
       solution:
-        'Created a clean, ad-free, high-performance web downloader utilizing a Python backend engine and responsive HTML/CSS/JavaScript frontend.',
+        'Developed a clean, ad-free, 100% serverless solution leveraging Cloudflare Workers and Cloudflare Pages for lightning-fast global extraction.',
       goal:
-        'Deliver a fast, responsive, and user-friendly media extraction tool while demonstrating core full-stack web development skills in Python and JavaScript.',
+        'Provide a fast, reliable, and user-friendly video downloader running 24/7 on edge infrastructure with zero server maintenance.',
       keyFeatures: [
-        'Multi-Platform Video Support',
-        'HD Quality & Audio MP3 Options',
-        'Direct Download Links',
+        'Multi-Platform Video Support (YouTube, TikTok, Facebook)',
+        'HD Video (1080p, 720p) & MP3 Audio Options',
+        'Direct High-Speed Download Links',
         'Instant Thumbnail & Title Preview',
-        'Mobile & Desktop Optimized UI'
+        '100% Serverless Edge Performance & Mobile Optimized'
       ]
     },
     gallery: [
