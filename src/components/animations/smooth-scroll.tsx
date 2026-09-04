@@ -9,6 +9,12 @@ export function SmoothScroll({ children }: { children: React.ReactNode }) {
   const rafRef = useRef<number>(0);
 
   useEffect(() => {
+    // Only initialize virtual smooth scroll on non-touch devices for maximum 120Hz/60Hz mobile smoothness
+    const isTouch = typeof window !== 'undefined' && ('ontouchstart' in window || navigator.maxTouchPoints > 0);
+    if (isTouch) {
+      return; // Use native high-performance mobile scrolling
+    }
+
     lenisRef.current = new Lenis({
       duration: 0.85,
       easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
@@ -16,7 +22,7 @@ export function SmoothScroll({ children }: { children: React.ReactNode }) {
       gestureOrientation: 'vertical',
       smoothWheel: true,
       wheelMultiplier: 1.1,
-      touchMultiplier: 1.2,
+      touchMultiplier: 0,
     });
 
     function raf(time: number) {

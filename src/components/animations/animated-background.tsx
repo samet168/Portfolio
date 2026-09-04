@@ -18,11 +18,11 @@ export function AnimatedBackground() {
       {/* Aurora gradient background */}
       <div className="absolute inset-0 transition-opacity duration-1000 bg-gradient-aurora-dark dark:bg-gradient-aurora-dark bg-gradient-aurora-light" />
 
-      {/* Animated mesh gradient - GPU accelerated */}
-      <div className="absolute inset-0 opacity-30 pointer-events-none">
-        <div className="absolute top-0 left-1/4 w-96 h-96 bg-blue-500/20 rounded-full blur-3xl animate-blob transform-gpu will-change-transform" />
-        <div className="absolute top-1/4 right-1/4 w-96 h-96 bg-cyan-500/20 rounded-full blur-3xl animate-blob animation-delay-2000 transform-gpu will-change-transform" />
-        <div className="absolute bottom-1/4 left-1/3 w-96 h-96 bg-purple-500/20 rounded-full blur-3xl animate-blob animation-delay-4000 transform-gpu will-change-transform" />
+      {/* Animated mesh gradient - GPU accelerated, optimized for mobile */}
+      <div className="absolute inset-0 opacity-25 md:opacity-30 pointer-events-none">
+        <div className="absolute top-0 left-1/4 w-72 md:w-96 h-72 md:h-96 bg-blue-500/15 md:bg-blue-500/20 rounded-full blur-2xl md:blur-3xl animate-blob transform-gpu will-change-transform" />
+        <div className="hidden md:block absolute top-1/4 right-1/4 w-96 h-96 bg-cyan-500/20 rounded-full blur-3xl animate-blob animation-delay-2000 transform-gpu will-change-transform" />
+        <div className="hidden md:block absolute bottom-1/4 left-1/3 w-96 h-96 bg-purple-500/20 rounded-full blur-3xl animate-blob animation-delay-4000 transform-gpu will-change-transform" />
       </div>
 
       {/* Grid pattern - static SVG, no animation */}

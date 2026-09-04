@@ -61,6 +61,7 @@ export function Hero() {
 
   function handleMouseMove(e: React.MouseEvent) {
     if (!containerRef.current) return;
+    if (typeof window !== 'undefined' && window.matchMedia('(pointer: coarse)').matches) return;
     const rect = containerRef.current.getBoundingClientRect();
     mouseX.set((e.clientX - rect.left) / rect.width - 0.5);
     mouseY.set((e.clientY - rect.top) / rect.height - 0.5);

@@ -5,6 +5,7 @@ import { useEffect, useRef, useState, useCallback } from 'react';
 export function CustomCursor() {
   const cursorRef = useRef<HTMLDivElement>(null);
   const [isHovering, setIsHovering] = useState(false);
+  const [isVisible, setIsVisible] = useState(false);
   const rafRef = useRef<number>(0);
   const posRef = useRef({ x: 0, y: 0 });
 
@@ -15,6 +16,12 @@ export function CustomCursor() {
   }, []);
 
   useEffect(() => {
+    // Only run custom cursor on desktop (mouse/fine pointer devices)
+    if (typeof window === 'undefined' || window.matchMedia('(pointer: coarse)').matches) {
+      return;
+    }
+    setIsVisible(true);
+
     const handleMouseMove = (e: MouseEvent) => {
       posRef.current = { x: e.clientX, y: e.clientY };
       cancelAnimationFrame(rafRef.current);
@@ -48,6 +55,8 @@ export function CustomCursor() {
       cancelAnimationFrame(rafRef.current);
     };
   }, [updateCursor]);
+
+  if (!isVisible) return null;
 
   return (
     <div
