@@ -4,6 +4,7 @@ import { motion } from 'framer-motion';
 import { Code, Database, Smartphone, Palette, Cloud, Server } from 'lucide-react';
 import { useTranslation } from '@/hooks/use-translation';
 import { Card } from '@/components/ui/card';
+import { AnimatedTitle } from '@/components/animations/animated-title';
 
 interface Service {
   icon: any;
@@ -58,63 +59,55 @@ export function Services() {
     <section id="services" className="py-20 relative">
       <div className="container mx-auto px-4">
         {/* Section Header */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="text-center mb-16"
-        >
-          <h2 className="text-4xl md:text-5xl font-bold mb-4 gradient-text">
-            {t('services.title')}
-          </h2>
-          <p className="text-lg text-gray-600 dark:text-gray-400">
+        <div className="text-center mb-16">
+          <AnimatedTitle
+            text={t('services.title')}
+            className="text-4xl md:text-5xl font-bold mb-4 gradient-text justify-center"
+          />
+          <motion.p
+            initial={{ opacity: 0, y: 15 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.3 }}
+            className="text-lg text-gray-600 dark:text-gray-400"
+          >
             {t('services.subtitle')}
-          </p>
-        </motion.div>
+          </motion.p>
+        </div>
 
         {/* Services Grid */}
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {services.map((service, index) => (
             <motion.div
               key={service.title}
-              initial={{ opacity: 0, y: 50 }}
+              initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: index * 0.1 }}
+              viewport={{ once: true, margin: '-40px' }}
+              transition={{ delay: index * 0.12, duration: 0.6, ease: [0.25, 0.1, 0.25, 1] }}
             >
-              <Card className="h-full hover:scale-105 transition-transform group" tilt>
-                <div className="p-6 space-y-6">
-                  {/* Icon */}
-                  <motion.div
-                    className="w-16 h-16 rounded-2xl bg-gradient-to-br from-blue-500/20 to-cyan-500/20 flex items-center justify-center group-hover:scale-110 transition-transform"
-                    whileHover={{ rotate: 5 }}
-                  >
-                    <service.icon className="w-8 h-8 text-blue-500" />
-                  </motion.div>
-
-                  {/* Content */}
-                  <div className="space-y-3">
-                    <h3 className="text-xl font-bold gradient-text">
-                      {service.title}
-                    </h3>
-                    <p className="text-gray-600 dark:text-gray-400 text-sm leading-relaxed">
-                      {service.description}
-                    </p>
+              <Card className="p-8 h-full flex flex-col justify-between hover:shadow-2xl hover:shadow-blue-500/10 hover:border-blue-500/30 transition-all duration-500 group">
+                <div>
+                  <div className="w-14 h-14 rounded-2xl bg-gradient-to-tr from-blue-500/20 to-cyan-500/10 flex items-center justify-center mb-6 group-hover:scale-110 group-hover:bg-blue-500/25 transition-all duration-300">
+                    <service.icon className="w-7 h-7 text-blue-500 group-hover:text-cyan-400 transition-colors" />
                   </div>
+                  <h3 className="text-xl font-bold mb-3 group-hover:text-blue-500 transition-colors">
+                    {service.title}
+                  </h3>
+                  <p className="text-gray-600 dark:text-gray-400 text-sm leading-relaxed mb-6">
+                    {service.description}
+                  </p>
+                </div>
 
-                  {/* Features */}
-                  <div className="space-y-2">
-                    {service.features.map((feature) => (
-                      <div
-                        key={feature}
-                        className="flex items-center gap-2 text-sm text-gray-600 dark:text-gray-400"
-                      >
-                        <div className="w-1.5 h-1.5 rounded-full bg-blue-500" />
-                        {feature}
-                      </div>
-                    ))}
-                  </div>
+                <div className="space-y-2 pt-4 border-t border-white/10">
+                  {service.features.map((feature) => (
+                    <div
+                      key={feature}
+                      className="text-xs font-medium text-gray-500 dark:text-gray-400 flex items-center gap-2"
+                    >
+                      <div className="w-1.5 h-1.5 rounded-full bg-blue-500/60" />
+                      {feature}
+                    </div>
+                  ))}
                 </div>
               </Card>
             </motion.div>

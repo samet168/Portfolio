@@ -8,6 +8,7 @@ import {
   GitBranch, Container, Monitor, Layout, FileCode2, Cpu
 } from 'lucide-react';
 import { useTranslation } from '@/hooks/use-translation';
+import { AnimatedTitle } from '@/components/animations/animated-title';
 
 // Category icon mapping
 const categoryIcons = {
@@ -229,13 +230,7 @@ export function Skills() {
 
       <div className="container mx-auto px-4 relative">
         {/* Section Header */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8 }}
-          className="text-center mb-16"
-        >
+        <div className="text-center mb-16">
           <motion.span
             initial={{ opacity: 0, scale: 0.9 }}
             whileInView={{ opacity: 1, scale: 1 }}
@@ -244,13 +239,22 @@ export function Skills() {
           >
             Tech Stack
           </motion.span>
-          <h2 className="text-4xl md:text-6xl font-bold mb-4">
-            <span className="gradient-text">{t('skills.title')}</span>
-          </h2>
-          <p className="text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
+          <div className="flex justify-center mb-4">
+            <AnimatedTitle
+              text={t('skills.title')}
+              className="text-4xl md:text-6xl font-bold gradient-text"
+            />
+          </div>
+          <motion.p
+            initial={{ opacity: 0, y: 15 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.3 }}
+            className="text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto"
+          >
             {t('skills.subtitle')}
-          </p>
-        </motion.div>
+          </motion.p>
+        </div>
 
         {/* Category Filter Pills */}
         <motion.div
@@ -302,10 +306,14 @@ export function Skills() {
             return (
               <motion.div
                 key={category.category}
-                initial={{ opacity: 0, y: 40 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: catIndex * 0.1 }}
+                initial={{ opacity: 0, y: 40, scale: 0.96 }}
+                whileInView={{ opacity: 1, y: 0, scale: 1 }}
+                viewport={{ once: true, margin: '-60px' }}
+                transition={{ 
+                  delay: catIndex * 0.1, 
+                  duration: 0.7, 
+                  ease: [0.22, 1, 0.36, 1] 
+                }}
               >
                 {/* Category header */}
                 <div className="flex items-center gap-3 mb-6">

@@ -118,8 +118,8 @@ body {
 }
 
 /* Smooth transitions for theme switching on relevant elements only */
-body, header, nav, aside, footer, .glass, .glass-strong, button, a {
-  transition-property: background-color, border-color, color, fill, stroke;
+body, header, nav, aside, footer {
+  transition-property: background-color, border-color, color;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   transition-duration: 200ms;
 }
@@ -241,17 +241,40 @@ body, header, nav, aside, footer, .glass, .glass-strong, button, a {
   scrollbar-width: none;
 }
 
-.safe-bottom {
-  padding-bottom: max(env(safe-area-inset-bottom, 16px), 16px);
+/* Card Hover & Interactive Floating Animations */
+.card-hover-lift {
+  transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.5s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.4s ease;
+  will-change: transform, box-shadow;
 }
 
-.safe-top {
-  padding-top: max(env(safe-area-inset-top, 16px), 16px);
+.card-hover-lift:hover {
+  transform: translateY(-6px) scale(1.012);
+  box-shadow: 0 24px 48px -12px rgba(0, 140, 255, 0.18);
 }
 
-@layer utilities {
-  .touch-tap-highlight-none {
-    -webkit-tap-highlight-color: transparent;
-  }
+/* Text Word/Letter Interactive Jump on Hover */
+.text-hover-jump {
+  display: inline-block;
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), filter 0.4s ease;
+  will-change: transform;
+}
+
+.text-hover-jump:hover {
+  transform: translateY(-4px) scale(1.06);
+  filter: drop-shadow(0 4px 12px rgba(0, 140, 255, 0.5));
+}
+
+/* Smooth Interactive Spring for Buttons & Badges */
+.btn-spring {
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.35s ease;
+  will-change: transform;
+}
+
+.btn-spring:hover {
+  transform: translateY(-2px) scale(1.03);
+}
+
+.btn-spring:active {
+  transform: translateY(0px) scale(0.97);
 }
 

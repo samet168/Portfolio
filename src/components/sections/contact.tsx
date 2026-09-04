@@ -9,6 +9,7 @@ import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { Button } from '@/components/ui/button';
 import { Toast } from '@/components/ui/toast';
+import { AnimatedTitle } from '@/components/animations/animated-title';
 
 // SVG social icons
 function GithubSvg({ className }: { className?: string }) {
@@ -111,36 +112,36 @@ export function Contact() {
     <section id="contact" className="py-20 relative">
       <div className="container mx-auto px-4">
         {/* Section Header */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="text-center mb-16"
-        >
-          <h2 className="text-4xl md:text-5xl font-bold mb-4 gradient-text">
-            {t('contact.title')}
-          </h2>
-          <p className="text-lg text-gray-600 dark:text-gray-400">
+        <div className="text-center mb-16">
+          <AnimatedTitle
+            text={t('contact.title')}
+            className="text-4xl md:text-5xl font-bold mb-4 gradient-text justify-center"
+          />
+          <motion.p
+            initial={{ opacity: 0, y: 15 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.3 }}
+            className="text-lg text-gray-600 dark:text-gray-400"
+          >
             {t('contact.subtitle')}
-          </p>
-        </motion.div>
+          </motion.p>
+        </div>
 
         <div className="grid lg:grid-cols-2 gap-12">
           {/* Contact Information */}
           <motion.div
-            initial={{ opacity: 0, x: -50 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="space-y-6"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: '-40px' }}
+            transition={{ duration: 0.7, ease: [0.25, 0.1, 0.25, 1] }}
+            className="space-y-8"
           >
-            <Card className="p-8 space-y-6">
+            <Card className="p-8 space-y-6 hover:shadow-2xl hover:shadow-blue-500/10 hover:border-blue-500/30 transition-all duration-500">
               <h3 className="text-2xl font-bold gradient-text mb-6">
-                Get In Touch
+                {t('contact.info.title')}
               </h3>
 
-              {/* Contact Info */}
               <div className="space-y-4">
                 {contactInfo.map((info, index) => (
                   <motion.div
@@ -148,11 +149,12 @@ export function Contact() {
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
-                    transition={{ delay: index * 0.1 }}
-                    className="flex items-center gap-4 p-4 rounded-lg hover:bg-white/5 dark:hover:bg-white/5 transition-colors"
+                    transition={{ delay: index * 0.08, duration: 0.5, ease: 'easeOut' }}
+                    whileHover={{ scale: 1.02, x: 4, transition: { duration: 0.2 } }}
+                    className="flex items-center gap-4 p-4 rounded-xl bg-white/50 dark:bg-white/[0.02] border border-white/10 hover:border-blue-500/30 transition-all"
                   >
-                    <div className="w-12 h-12 rounded-full bg-blue-500/20 flex items-center justify-center">
-                      <info.icon className="w-5 h-5 text-blue-500" />
+                    <div className="w-12 h-12 rounded-full bg-blue-500/10 flex items-center justify-center text-blue-500">
+                      <info.icon className="w-5 h-5" />
                     </div>
                     <div className="flex-1">
                       <div className="text-sm text-gray-600 dark:text-gray-400">
@@ -163,14 +165,14 @@ export function Contact() {
                     {info.action === 'copy' && (
                       <motion.button
                         onClick={copyEmail}
-                        className="p-2 rounded-full hover:bg-blue-500/20 transition-colors"
-                        whileHover={{ scale: 1.1 }}
-                        whileTap={{ scale: 0.95 }}
+                        className="p-2 rounded-full hover:bg-blue-500/20 text-gray-500 hover:text-blue-500 transition-colors"
+                        whileHover={{ scale: 1.15 }}
+                        whileTap={{ scale: 0.9 }}
                       >
                         {emailCopied ? (
                           <Check className="w-4 h-4 text-green-500" />
                         ) : (
-                          <Copy className="w-4 h-4 text-gray-600 dark:text-gray-400" />
+                          <Copy className="w-4 h-4" />
                         )}
                       </motion.button>
                     )}
@@ -180,7 +182,7 @@ export function Contact() {
 
               {/* Social Links */}
               <div className="pt-6 border-t border-gray-200 dark:border-gray-800">
-                <div className="text-sm text-gray-600 dark:text-gray-400 mb-4">
+                <div className="text-sm text-gray-600 dark:text-gray-400 mb-4 font-medium">
                   {t('contact.info.social')}
                 </div>
                 <div className="flex gap-4">
@@ -190,12 +192,13 @@ export function Contact() {
                       href={social.href}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="w-12 h-12 rounded-full glass flex items-center justify-center text-gray-600 dark:text-gray-400 hover:text-blue-500 transition-all"
-                      whileHover={{ scale: 1.1, rotate: 5 }}
+                      className="w-12 h-12 rounded-full glass flex items-center justify-center text-gray-600 dark:text-gray-400 hover:text-blue-500 hover:border-blue-500/40 hover:shadow-lg hover:shadow-blue-500/20 transition-all"
+                      whileHover={{ scale: 1.15, y: -3, transition: { duration: 0.2 } }}
                       whileTap={{ scale: 0.95 }}
                       initial={{ opacity: 0, scale: 0 }}
-                      animate={{ opacity: 1, scale: 1 }}
-                      transition={{ delay: 0.5 + index * 0.1 }}
+                      whileInView={{ opacity: 1, scale: 1 }}
+                      viewport={{ once: true }}
+                      transition={{ delay: 0.3 + index * 0.08, type: 'spring', stiffness: 300 }}
                     >
                       <social.icon className="w-5 h-5" />
                     </motion.a>
@@ -205,11 +208,11 @@ export function Contact() {
             </Card>
 
             {/* Map Card */}
-            <Card className="p-6">
-              <div className="aspect-video rounded-lg bg-gradient-to-br from-blue-500/20 to-cyan-500/20 flex items-center justify-center">
+            <Card className="p-6 hover:shadow-2xl hover:shadow-blue-500/10 hover:border-blue-500/30 transition-all duration-500">
+              <div className="aspect-video rounded-lg bg-gradient-to-br from-blue-500/15 via-cyan-500/10 to-indigo-500/15 flex items-center justify-center border border-white/10">
                 <div className="text-center">
-                  <MapPin className="w-8 h-8 text-blue-500 mx-auto mb-2" />
-                  <div className="text-sm text-gray-600 dark:text-gray-400">
+                  <MapPin className="w-8 h-8 text-blue-500 mx-auto mb-2 animate-bounce" />
+                  <div className="text-sm font-semibold text-gray-700 dark:text-gray-300">
                     Phnom Penh, Cambodia
                   </div>
                 </div>
@@ -219,12 +222,12 @@ export function Contact() {
 
           {/* Contact Form */}
           <motion.div
-            initial={{ opacity: 0, x: 50 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: '-40px' }}
+            transition={{ duration: 0.7, delay: 0.1, ease: [0.25, 0.1, 0.25, 1] }}
           >
-            <Card className="p-8">
+            <Card className="p-8 hover:shadow-2xl hover:shadow-blue-500/10 hover:border-blue-500/30 transition-all duration-500">
               <h3 className="text-2xl font-bold gradient-text mb-6">
                 Send a Message
               </h3>

@@ -19,19 +19,18 @@ const variants = {
 export const Card = forwardRef<HTMLDivElement, CardProps>(
   ({ className, variant = 'glass', hover = true, tilt = false, children, ...props }, ref) => {
     return (
-      <motion.div
+      <div
         ref={ref}
         className={cn(
-          'relative rounded-2xl p-6 backdrop-blur-xl',
+          'relative rounded-2xl p-6 backdrop-blur-xl transition-all duration-300 ease-out',
           variants[variant],
-          hover && 'transition-all duration-300 hover:shadow-glow hover:scale-[1.02]',
+          hover && 'hover:-translate-y-2 hover:shadow-2xl hover:shadow-blue-500/15 hover:border-blue-500/30',
           className
         )}
-        whileHover={tilt ? { rotateX: 5, rotateY: 5 } : undefined}
         {...(props as any)}
       >
         {children}
-      </motion.div>
+      </div>
     );
   }
 );

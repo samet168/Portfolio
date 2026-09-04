@@ -5,6 +5,7 @@ import { Briefcase, GraduationCap, FolderGit2 } from 'lucide-react';
 import { useTranslation } from '@/hooks/use-translation';
 import { Card } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
+import { AnimatedTitle } from '@/components/animations/animated-title';
 
 interface ExperienceItem {
   year: string;
@@ -77,20 +78,21 @@ export function Experience() {
     <section id="experience" className="py-20 relative">
       <div className="container mx-auto px-4">
         {/* Section Header */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="text-center mb-16"
-        >
-          <h2 className="text-4xl md:text-5xl font-bold mb-4 gradient-text">
-            {t('experience.title')}
-          </h2>
-          <p className="text-lg text-gray-600 dark:text-gray-400">
+        <div className="text-center mb-16">
+          <AnimatedTitle
+            text={t('experience.title')}
+            className="text-4xl md:text-5xl font-bold mb-4 gradient-text justify-center"
+          />
+          <motion.p
+            initial={{ opacity: 0, y: 15 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.3 }}
+            className="text-lg text-gray-600 dark:text-gray-400"
+          >
             {t('experience.subtitle')}
-          </p>
-        </motion.div>
+          </motion.p>
+        </div>
 
         {/* Timeline */}
         <div className="max-w-4xl mx-auto">
@@ -103,49 +105,49 @@ export function Experience() {
               {experiences.map((experience, index) => (
                 <motion.div
                   key={experience.year}
-                  initial={{ opacity: 0, y: 50 }}
+                  initial={{ opacity: 0, y: 35 }}
                   whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: index * 0.15 }}
+                  viewport={{ once: true, margin: '-40px' }}
+                  transition={{ delay: index * 0.12, duration: 0.65, ease: [0.25, 0.1, 0.25, 1] }}
                   className={`relative ${index % 2 === 0 ? 'md:pr-1/2 md:text-right' : 'md:pl-1/2 md:ml-auto'}`}
                 >
                   {/* Timeline dot */}
                   <motion.div
-                    className={`absolute left-0 md:left-1/2 top-8 w-4 h-4 rounded-full bg-gradient-to-r from-blue-500 to-cyan-500 transform -translate-x-1/2 z-10`}
-                    whileHover={{ scale: 1.5 }}
+                    className="absolute left-0 md:left-1/2 top-8 w-4 h-4 rounded-full bg-gradient-to-r from-blue-500 to-cyan-500 transform -translate-x-1/2 z-10 shadow-lg shadow-blue-500/40"
+                    whileHover={{ scale: 1.6, rotate: 90, transition: { duration: 0.3 } }}
                   >
-                    <div className="absolute inset-0 rounded-full bg-blue-500 animate-ping" />
+                    <div className="absolute inset-0 rounded-full bg-blue-500/80 animate-ping" />
                   </motion.div>
 
                   {/* Content */}
                   <div className={`ml-8 md:ml-0 ${index % 2 === 0 ? 'md:pr-12' : 'md:pl-12'}`}>
-                    <Card className="p-6 hover:scale-105 transition-transform">
+                    <Card className="p-6 hover:shadow-2xl hover:shadow-blue-500/10 hover:border-blue-500/30 transition-all duration-500 group">
                       {/* Header */}
                       <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4 mb-4">
-                        <div>
-                          <Badge className={`mb-2 ${typeColors[experience.type]}`}>
+                        <div className={index % 2 === 0 ? 'md:text-right' : 'md:text-left'}>
+                          <Badge className={`mb-2 ${typeColors[experience.type]} transition-transform duration-300 group-hover:scale-105`}>
                             {(() => { const Icon = typeIcons[experience.type]; return <Icon className="w-3.5 h-3.5 mr-1 inline" />; })()}
                             {experience.type.charAt(0).toUpperCase() + experience.type.slice(1)}
                           </Badge>
                           <div className="text-sm font-semibold text-blue-500 mb-1">
                             {experience.year}
                           </div>
-                          <h3 className="text-xl font-bold">{experience.title}</h3>
-                          <div className="text-gray-600 dark:text-gray-400">
+                          <h3 className="text-xl font-bold group-hover:text-blue-500 transition-colors">{experience.title}</h3>
+                          <div className="text-gray-600 dark:text-gray-400 font-medium">
                             {experience.company}
                           </div>
                         </div>
                       </div>
 
                       {/* Description */}
-                      <p className="text-gray-600 dark:text-gray-400 mb-4 leading-relaxed">
+                      <p className="text-gray-600 dark:text-gray-400 mb-4 leading-relaxed text-sm">
                         {experience.description}
                       </p>
 
                       {/* Technologies */}
-                      <div className="flex flex-wrap gap-2">
+                      <div className={`flex flex-wrap gap-2 ${index % 2 === 0 ? 'md:justify-end' : 'md:justify-start'}`}>
                         {experience.technologies.map((tech) => (
-                          <Badge key={tech} variant="secondary" className="text-xs">
+                          <Badge key={tech} variant="secondary" className="text-xs transition-colors hover:border-blue-500/40 hover:bg-blue-500/10">
                             {tech}
                           </Badge>
                         ))}
@@ -160,22 +162,22 @@ export function Experience() {
 
         {/* Call to action */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ delay: 0.5 }}
+          viewport={{ once: true, margin: '-40px' }}
+          transition={{ duration: 0.7, ease: [0.25, 0.1, 0.25, 1] }}
           className="mt-16 text-center"
         >
-          <Card className="p-8 inline-block">
+          <Card className="p-8 inline-block hover:shadow-2xl hover:shadow-blue-500/10 hover:border-blue-500/30 transition-all duration-500">
             <h3 className="text-2xl font-bold gradient-text mb-4">
               Ready to work together?
             </h3>
-            <p className="text-gray-600 dark:text-gray-400 mb-6">
+            <p className="text-gray-600 dark:text-gray-400 mb-6 max-w-md mx-auto">
               I'm always open to discussing new projects, creative ideas, or opportunities to be part of your vision.
             </p>
             <motion.button
               onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
-              className="px-8 py-3 bg-gradient-to-r from-blue-500 to-cyan-500 text-white rounded-full font-semibold hover:shadow-glow transition-all"
+              className="px-8 py-3 bg-gradient-to-r from-blue-500 via-cyan-400 to-indigo-500 text-white rounded-full font-semibold shadow-lg shadow-blue-500/25 hover:shadow-blue-500/40 transition-all"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >

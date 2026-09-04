@@ -15,6 +15,7 @@ function GithubIcon({ className }: { className?: string }) {
 import { useTranslation } from '@/hooks/use-translation';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
+import { AnimatedTitle } from '@/components/animations/animated-title';
 import { projects, projectCategories, type Project, type ProjectStatus } from '@/constants/projects';
 import Link from 'next/link';
 import Image from 'next/image';
@@ -334,13 +335,7 @@ export function Projects() {
 
       <div className="container mx-auto px-4 relative">
         {/* Section Header */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8 }}
-          className="text-center mb-16"
-        >
+        <div className="text-center mb-16">
           <motion.span
             initial={{ opacity: 0, scale: 0.9 }}
             whileInView={{ opacity: 1, scale: 1 }}
@@ -349,13 +344,22 @@ export function Projects() {
           >
             Portfolio Showcase
           </motion.span>
-          <h2 className="text-4xl md:text-6xl font-bold mb-4">
-            <span className="gradient-text">{t('projects.title')}</span>
-          </h2>
-          <p className="text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
+          <div className="flex justify-center mb-4">
+            <AnimatedTitle
+              text={t('projects.title')}
+              className="text-4xl md:text-6xl font-bold gradient-text"
+            />
+          </div>
+          <motion.p
+            initial={{ opacity: 0, y: 15 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.3 }}
+            className="text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto"
+          >
             {t('projects.subtitle')}
-          </p>
-        </motion.div>
+          </motion.p>
+        </div>
 
         {/* Category Filter */}
         <motion.div
