@@ -119,57 +119,65 @@ export function Hero() {
               </span>
             </motion.div>
 
-            {/* Name with Dynamic Stagger Animation */}
-            <motion.h1
-              initial="hidden"
-              animate="visible"
-              variants={{
-                hidden: { opacity: 0 },
-                visible: {
-                  opacity: 1,
-                  transition: {
-                    staggerChildren: 0.05,
-                    delayChildren: 0.3,
-                  },
-                },
-              }}
-              className="text-4xl sm:text-5xl md:text-7xl font-bold leading-tight select-none"
-            >
-              <span className="gradient-text inline-flex flex-wrap gap-x-3 sm:gap-x-4">
-                {(t('hero.name') || 'MOEUN SAMET').split(' ').map((word: string, wordIdx: number) => (
-                  <span key={wordIdx} className="inline-flex overflow-visible">
-                    {word.split('').map((char: string, charIdx: number) => (
-                      <motion.span
-                        key={charIdx}
-                        variants={{
-                          hidden: { opacity: 0, y: 35, rotateX: -60, scale: 0.8 },
-                          visible: {
-                            opacity: 1,
-                            y: 0,
-                            rotateX: 0,
-                            scale: 1,
-                            transition: {
-                              type: 'spring',
-                              damping: 12,
-                              stiffness: 120,
-                            },
-                          },
-                        }}
-                        whileHover={{
-                          y: -8,
-                          scale: 1.18,
-                          filter: 'drop-shadow(0 0 16px rgba(0, 140, 255, 0.8))',
-                          transition: { type: 'spring', stiffness: 400, damping: 10 },
-                        }}
-                        className="inline-block transition-colors cursor-default"
-                      >
-                        {char}
-                      </motion.span>
-                    ))}
-                  </span>
-                ))}
+            {/* Name with Safe Grapheme/Letter-by-Letter Animation */}
+            <h1 className="text-4xl sm:text-5xl md:text-7xl font-bold leading-tight select-none">
+              <span className="inline-flex flex-wrap gap-x-3 sm:gap-x-5">
+                {(() => {
+                  const nameText = t('hero.name') || 'MOEUN SAMET';
+                  const words = nameText.split(' ');
+                  
+                  // Safe Khmer/English grapheme cluster splitter
+                  const splitGraphemes = (str: string): string[] => {
+                    if (typeof Intl !== 'undefined' && 'Segmenter' in Intl) {
+                      const segmenter = new (Intl as unknown as { Segmenter: new (locale: string, opts: { granularity: string }) => { segment: (text: string) => Iterable<{ segment: string }> } }).Segmenter('km', { granularity: 'grapheme' });
+                      return Array.from(segmenter.segment(str), (s: { segment: string }) => s.segment);
+                    }
+                    return str.split('');
+                  };
+
+                  let globalIdx = 0;
+                  return words.map((word: string, wordIdx: number) => {
+                    const clusters = splitGraphemes(word);
+                    return (
+                      <span key={wordIdx} className="inline-flex overflow-visible">
+                        {clusters.map((char: string) => {
+                          const currentIdx = globalIdx++;
+                          return (
+                            <motion.span
+                              key={currentIdx}
+                              initial={{ opacity: 0, y: 18, filter: 'blur(4px)' }}
+                              animate={{ 
+                                opacity: 1, 
+                                y: [0, -6, 0],
+                                filter: 'blur(0px)'
+                              }}
+                              transition={{
+                                opacity: { duration: 0.5, delay: 0.2 + currentIdx * 0.05, ease: 'easeOut' },
+                                filter: { duration: 0.5, delay: 0.2 + currentIdx * 0.05, ease: 'easeOut' },
+                                y: {
+                                  repeat: Infinity,
+                                  duration: 3.2,
+                                  ease: [0.45, 0.05, 0.55, 0.95],
+                                  delay: 0.6 + currentIdx * 0.12,
+                                }
+                              }}
+                              whileHover={{
+                                y: -10,
+                                scale: 1.2,
+                                transition: { type: 'spring', stiffness: 400, damping: 12 },
+                              }}
+                              className="inline-block cursor-pointer gradient-text-animated will-change-transform py-1"
+                            >
+                              {char}
+                            </motion.span>
+                          );
+                        })}
+                      </span>
+                    );
+                  });
+                })()}
               </span>
-            </motion.h1>
+            </h1>
 
             {/* Title */}
             <motion.div

@@ -157,6 +157,31 @@ body, header, nav, aside, footer, .glass, .glass-strong, button, a {
   background-clip: text;
 }
 
+.gradient-text-animated {
+  background: linear-gradient(
+    135deg,
+    rgb(0, 140, 255) 0%,
+    rgb(0, 230, 255) 30%,
+    rgb(56, 189, 248) 50%,
+    rgb(99, 102, 241) 75%,
+    rgb(0, 140, 255) 100%
+  );
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: shimmerGradient 5s linear infinite;
+}
+
+@keyframes shimmerGradient {
+  0% {
+    background-position: 0% center;
+  }
+  100% {
+    background-position: 200% center;
+  }
+}
+
 /* Glow effects */
 .glow {
   box-shadow: 0 0 20px var(--accent-glow);
