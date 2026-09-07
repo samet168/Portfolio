@@ -153,6 +153,128 @@ export const projects: Project[] = [
   //   order: 1,
   // },
   {
+    id: 'qr-code-studio-pro',
+    slug: 'qr-code-studio-pro',
+    title: 'QR Code Studio Pro',
+    shortDescription:
+      'A modern real-time QR code generator web app with custom styles, logos, padding slider, and direct mobile device saving.',
+    longDescription:
+      'QR Code Studio Pro is a high-performance, client-side QR code generator web application deployed on Cloudflare Pages. It enables instant, real-time generation of QR codes for URLs, Wi-Fi networks, vCards, Emails, and plain text. Featuring a modern glassmorphism UI with dark/light mode, mobile app bottom dock navigation, adjustable margin/padding controls, customizable dot and corner shapes, custom logo embedding, and direct mobile saving into iOS Photos and Android Gallery via the Web Share API.',
+    category: 'Web Application',
+    status: 'completed',
+    image: '/images/QR.png',
+    gradient: 'from-indigo-600 via-purple-600 to-pink-500',
+    accentColor: '#6366F1',
+    technologies: [
+      'JavaScript',
+      'HTML5',
+      'CSS3',
+      'QRCode Styling',
+      'Cloudflare Pages',
+      'Web Share API',
+      'PWA'
+    ],
+    features: [
+      'Real-Time Debounced QR Generation',
+      'Multi-Format: URL, Wi-Fi, vCard, Email, Text',
+      'Custom Dot Styles (Dots, Rounded, Classy, Square)',
+      'Custom Corner Square & Eye Shapes',
+      'Brand Logo Upload & Centered Embedding',
+      'Interactive Padding & Margin Slider (0-35px)',
+      'High-Resolution PNG (HD/4K) & Vector SVG Export',
+      'Direct Mobile Camera Roll / Photos Saving',
+      'Mobile App Bottom Dock & Haptic Ripple Physics',
+      'Dark & Light Mode Glassmorphism UI',
+      'Offline LocalStorage Generation History'
+    ],
+    architecture: {
+      frontend: 'HTML5 / Modern Glassmorphism CSS / Vanilla JS',
+      backend: 'Client-Side In-Browser Engine',
+      api: 'Web Share & Clipboard APIs',
+      database: 'LocalStorage (Offline History)',
+      deployment: 'Cloudflare Pages'
+    },
+    timeline: [
+      {
+        phase: 'Planning & UI Design',
+        duration: '2 Days',
+        description: 'Designed a mobile-first, native-feeling app UI with glassmorphism and aurora gradient animations.'
+      },
+      {
+        phase: 'Core Engine & Customization',
+        duration: '4 Days',
+        description: 'Integrated client-side QR engine with real-time dot shapes, corner types, colors, and logo overlay.'
+      },
+      {
+        phase: 'Mobile Optimization & Save Flow',
+        duration: '3 Days',
+        description: 'Engineered Web Share API file integration, long-press save modals, and tactile bottom dock navigation.'
+      },
+      {
+        phase: 'Margin Controls & Export Quality',
+        duration: '2 Days',
+        description: 'Implemented customizable margin/padding slider and high-resolution multi-scale (500px, 1000px, 2000px) exports.'
+      },
+      {
+        phase: 'Cloudflare Pages Deployment',
+        duration: '1 Day',
+        description: 'Deployed to Cloudflare Pages edge network for 100% free, 24/7 global accessibility.'
+      }
+    ],
+    challenges: [
+      {
+        problem: 'Direct image saving into iOS Camera Roll and Android Gallery without server-side processing.',
+        solution:
+          'Utilized the Web Share API with File objects for native photo library saving, accompanied by long-press modal fallbacks.',
+        lesson:
+          'Modern Web APIs allow native-like mobile app experiences entirely on static edge hosting.'
+      },
+      {
+        problem: 'Real-time responsive generation with high-res export fidelity.',
+        solution:
+          'Applied debounced live rendering for the preview and dedicated multi-scale canvas instances during export.',
+        lesson:
+          'Decoupling preview rendering from export instances keeps the UI smooth and responsive.'
+      }
+    ],
+    teamSize: 1,
+    myRole: 'Frontend & Web App Developer',
+    difficulty: 'intermediate',
+    isResponsive: true,
+    hasDarkMode: true,
+    github: {
+      repoName: 'qr-code-web',
+      repoDescription: 'Modern, mobile-responsive QR Code Generator Web App deployed on Cloudflare Pages.',
+      stars: 0,
+      language: 'JavaScript / HTML / CSS',
+      lastUpdated: '2026',
+      url: 'https://github.com/samet167/qr-code-web'
+    },
+    viewUrl: 'https://qr-studio-pro-2ze.pages.dev/',
+    overview: {
+      introduction:
+        'QR Code Studio Pro is an interactive web tool built to create beautifully styled, scannable QR codes instantly with 0 server costs.',
+      problem:
+        'Most free online QR generators are filled with ads, require registration, or lack custom styling and mobile-friendly saving options.',
+      solution:
+        'Created a clean, client-side, ad-free web app supporting customized colors, dot patterns, brand logos, and instant mobile saving.',
+      goal:
+        'Provide a fast, aesthetic, and privacy-friendly QR code generation tool deployed on Cloudflare Pages.',
+      keyFeatures: [
+        'Instant Real-Time Preview with Laser Scan Animation',
+        'Direct Save to Phone Photos / Gallery',
+        'Custom Margin & Spacing Adjustment',
+        'High-Resolution HD / 4K PNG & Vector SVG Export',
+        'Dark & Light Mode Support'
+      ]
+    },
+    gallery: [
+      '/images/QR.png'
+    ],
+    featured: true,
+    order: 1
+  },
+  {
     id: 'pharmacy-pos-system',
     slug: 'pharmacy-pos-system',
     title: 'Pharmacy POS System',
