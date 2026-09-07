@@ -1,3 +1,4 @@
+
 export type ProjectStatus = 'completed' | 'in-progress' | 'open-source';
 export type DifficultyLevel = 'beginner' | 'intermediate' | 'advanced' | 'expert';
 
