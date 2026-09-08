@@ -633,6 +633,78 @@ export const projects: Project[] = [
     featured: true,
     order: 3
   },
+    {
+    id: 'telegram-scam-malware-detector',
+    slug: 'telegram-scam-malware-detector',
+    title: 'Telegram Scam & Malware Protection Bot',
+    shortDescription: 'Serverless security bot powered by Cloudflare Workers & Python for malware and phishing protection.',
+    longDescription: 'An enterprise-grade, serverless Telegram security bot built with Cloudflare Workers (ES Modules) and Python. It automatically scans incoming attachments using VirusTotal API v3 (SHA-256 Web Crypto API), inspects phishing URLs, detects double-extension scam tactics, and automatically moderates dangerous messages in Telegram Channels and Groups.',
+    category: 'Desktop Application',
+    status: 'completed',
+    image: '/images/telegram-bot-scam.png',
+    gradient: 'from-purple-600 via-indigo-500 to-blue-500',
+    accentColor: '#6366F1',
+    technologies: ['Cloudflare Workers', 'JavaScript', 'Python', 'Telegram Bot API', 'VirusTotal API v3', 'Webhooks'],
+    features: [
+      '24/7 Serverless Execution on Cloudflare Edge',
+      'SHA-256 Web Crypto Hash Calculation',
+      'VirusTotal API v3 Threat Analysis',
+      'Phishing URL & Scam Link Inspection',
+      'Anti-Scam Text Pattern Protection',
+      'Double Extension Scam Warning (photo.png.exe)',
+      'Automated Channel & Group Moderation',
+      'Full Khmer Language Support',
+    ],
+    architecture: {
+      frontend: 'Telegram Bot User Interface',
+      backend: 'Cloudflare Workers (ES Modules) + Python',
+      api: 'Telegram Bot API & VirusTotal API v3',
+      database: 'Stateless / Zero-Data Retention',
+      deployment: 'Cloudflare Workers Edge Network',
+    },
+    timeline: [
+      { phase: 'Architecture & Design', duration: '1 week', description: 'Designed serverless webhook architecture and SHA-256 Web Crypto pipeline' },
+      { phase: 'Development & Integration', duration: '1 week', description: 'Built Cloudflare Worker, VirusTotal API integration, and anti-scam regex' },
+      { phase: 'Deployment & Moderation', duration: '2 days', description: 'Deployed to Cloudflare Workers Edge and enabled Telegram Channel moderation' },
+    ],
+    challenges: [
+      {
+        problem: 'Serverless execution time and memory limits for file hashing',
+        solution: 'Used Web Crypto API for streaming SHA-256 digests directly on edge nodes',
+        lesson: 'Edge computing provides high performance without server maintenance overhead',
+      },
+    ],
+    teamSize: 1,
+    myRole: 'Full Stack Security Engineer',
+    difficulty: 'advanced',
+    isResponsive: true,
+    hasDarkMode: true,
+    viewUrl: 'https://t.me/khmer_scam_detector_bot',
+    github: {
+      repoName: 'telegram-bot-scam',
+      repoDescription: 'Enterprise Telegram Scam & Malware Detection Bot on Cloudflare Workers',
+      language: 'JavaScript',
+      lastUpdated: '2026-09-08',
+      url: 'https://github.com/samet167/telegram-bot-scam',
+    },
+    overview: {
+      introduction: 'A security bot that safeguards Telegram Groups and Channels against malware and phishing scams.',
+      problem: 'Telegram groups are heavily targeted by malware attachments and phishing gift links.',
+      solution: 'Automated 24/7 edge scanning via Cloudflare Workers and VirusTotal API v3.',
+      goal: 'Protect online Khmer Telegram communities from cybersecurity threats.',
+      keyFeatures: [
+        'VirusTotal File Hash & Upload Scanning',
+        'Phishing Link Detection',
+        'Auto-Moderation Deletion',
+        'Khmer Localization',
+      ],
+    },
+    gallery: [
+      '/images/telegram-bot-scam.png',
+    ],
+    featured: true,
+    order: 6,
+  },
   {
     id: 'render-keepalive-hub',
     slug: 'render-keepalive-hub',
@@ -1735,6 +1807,8 @@ export const projects: Project[] = [
     order: 5
   },
 
+
+  
 
 ];
 

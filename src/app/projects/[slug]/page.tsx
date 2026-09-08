@@ -46,7 +46,7 @@ function ProjectHero({ project }: { project: Project }) {
               alt={project.title}
               fill
               sizes="100vw"
-              className="object-cover"
+              className="object-contain"
               priority
             />
             <div className="absolute inset-0 bg-black/50 dark:bg-black/60" />
@@ -400,7 +400,7 @@ function GallerySection({ project }: { project: Project }) {
                 alt={`${project.title} - Full Preview`}
                 fill
                 sizes="(max-width: 768px) 100vw, 80vw"
-                className="object-cover transition-transform duration-700 group-hover:scale-105"
+                className="object-contain transition-transform duration-700 group-hover:scale-105"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
               <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
@@ -438,7 +438,7 @@ function GallerySection({ project }: { project: Project }) {
                     </div>
                     {hasImage ? (
                       <div className="relative w-full h-[calc(100%-1.5rem)]">
-                        <Image src={project.image!} alt={project.title} fill className="object-cover object-top" sizes="300px" />
+                        <Image src={project.image!} alt={project.title} fill className="object-contain object-top" sizes="300px" />
                       </div>
                     ) : (
                       <div className="p-3 space-y-2">
@@ -458,7 +458,7 @@ function GallerySection({ project }: { project: Project }) {
                       </div>
                       {hasImage ? (
                         <div className="relative w-full h-[calc(100%-0.75rem)]">
-                          <Image src={project.image!} alt={project.title} fill className="object-cover object-top" sizes="150px" />
+                          <Image src={project.image!} alt={project.title} fill className="object-contain object-top" sizes="150px" />
                         </div>
                       ) : (
                         <div className="p-2 space-y-1.5">
@@ -480,7 +480,7 @@ function GallerySection({ project }: { project: Project }) {
                       </div>
                       {hasImage ? (
                         <div className="relative w-full h-[calc(100%-0.75rem)]">
-                          <Image src={project.image!} alt={project.title} fill className="object-cover object-top" sizes="100px" />
+                          <Image src={project.image!} alt={project.title} fill className="object-contain object-top" sizes="100px" />
                         </div>
                       ) : (
                         <div className="p-1.5 space-y-1">
