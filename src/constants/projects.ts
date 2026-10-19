@@ -496,6 +496,10 @@ export const projects: Project[] = [
     frontendUrl: 'https://github.com/samet168/Pharmacy-POS-Frontend',
     backendUrl: 'https://github.com/samet168/Pharmacy-POS-Backend',
     viewUrl: 'https://pharmacy-pos-frontend-eight.vercel.app/',
+    demoAccount: {
+      email: 'superadmin',
+      password: 'admin123'
+    },
     overview: {
       introduction:
         'Pharmacy POS System is a customized solution built to streamline medication sales, stock management, and prescription tracking.',

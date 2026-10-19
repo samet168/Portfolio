@@ -897,9 +897,9 @@ function DemoAccountSection({ project }: { project: Project }) {
               </div>
             </div>
 
-            {/* Email */}
+            {/* Username / Email */}
             <div className="mb-4">
-              <label className="text-xs text-gray-500 dark:text-gray-500 uppercase tracking-wider mb-2 block">Email</label>
+              <label className="text-xs text-gray-500 dark:text-gray-500 uppercase tracking-wider mb-2 block">Username / Email</label>
               <div className="flex items-center gap-2 p-3 rounded-xl bg-black/20 border border-white/5">
                 <Mail className="w-4 h-4 text-gray-500 shrink-0" />
                 <span className="flex-1 text-sm text-gray-300 font-mono">{project.demoAccount.email}</span>
