@@ -153,6 +153,132 @@ export const projects: Project[] = [
   //   order: 1,
   // },
   {
+    id: 'stu-atten-store-google-sheet',
+    slug: 'stu-atten-store-google-sheet',
+    title: 'Student Attendance & Grades via Google Sheets',
+    shortDescription:
+      'A smart student attendance, grading, and self-registration system powered by Next.js 16 and Google Sheets API as a free real-time cloud database.',
+    longDescription:
+      'Student Attendance via Google Sheets is an innovative full-stack web application designed for educators and schools to manage student registration, daily attendance tracking, grades, and subject-wise attendance analytics without recurring database costs. Data is directly and securely synced to the teacher\'s personal Google Sheet in real time using a Google Cloud Service Account. It also includes an integrated AI Assistant ("ឆ្លាត AI") for smart inquiries and automated QR code generation for effortless student self-registration.',
+    category: 'Web Application',
+    status: 'completed',
+    image: '/images/attendance-google-sheet.png',
+    gradient: 'from-emerald-500 via-teal-500 to-cyan-500',
+    accentColor: '#10B981',
+    technologies: [
+      'Next.js 16',
+      'React 19',
+      'TypeScript',
+      'Tailwind CSS v4',
+      'Google Sheets API',
+      'Google Cloud',
+      'AI Assistant',
+      'QR Code'
+    ],
+    features: [
+      'Google Sheets as Real-Time Cloud Database',
+      'One-Click Sheet Linking & Auto-Tab Generation',
+      'Fast Student Attendance Marking (Present / Permission / Absent)',
+      'Subject-Based Attendance Rate Summaries & Statistics',
+      'Student Grades & Ranking Evaluation System',
+      'Self-Registration via QR Code & Direct Share Link',
+      'Integrated AI Assistant ("ឆ្លាត AI") for Class Inquiries',
+      'Zero Database Hosting Costs (100% Free via Google Sheets)',
+      'Mobile & Desktop Responsive UI'
+    ],
+    architecture: {
+      frontend: 'Next.js 16 (App Router) + React 19 + Tailwind CSS v4',
+      backend: 'Next.js API Routes (Serverless API)',
+      api: 'Google Sheets REST API v4 & Google Service Account',
+      database: 'Google Sheets (Cloud Spreadsheet as Database)',
+      deployment: 'Vercel / Cloudflare Pages'
+    },
+    timeline: [
+      {
+        phase: 'Planning & Architecture',
+        duration: '1 Day',
+        description: 'Researched Google Sheets API v4 integration and service account security for headless storage.'
+      },
+      {
+        phase: 'Google Sheets API & Auth',
+        duration: '2 Days',
+        description: 'Configured Google Cloud Service Account, automated sheet tabs (Students, Attendance, Grades) generation and row append logic.'
+      },
+      {
+        phase: 'Frontend & UI Development',
+        duration: '4 Days',
+        description: 'Built clean, responsive Next.js 16 interface with daily attendance toggle, subject stats, student registration QR codes, and AI chat drawer.'
+      },
+      {
+        phase: 'Testing & Optimization',
+        duration: '2 Days',
+        description: 'Validated real-time sheet read/write speeds, error handling for sheet permissions, and mobile responsiveness.'
+      },
+      {
+        phase: 'Deployment',
+        duration: '1 Day',
+        description: 'Deployed production application to Vercel.'
+      }
+    ],
+    challenges: [
+      {
+        problem: 'Connecting client web interactions to Google Sheets without exposing Google Service Account private credentials.',
+        solution:
+          'Structured server-side Next.js API route handlers to securely authenticate with Google APIs using private environment variables and perform all read/write operations.',
+        lesson:
+          'Serverless API routes provide a secure boundary between client UI and third-party cloud service credentials.'
+      },
+      {
+        problem: 'Managing sheet structure initialization dynamically when teachers link empty Google Sheets.',
+        solution:
+          'Implemented automated sheet verification and tab creation logic that ensures required headers and schemas exist before accepting submissions.',
+        lesson:
+          'Automating schema bootstrapping creates a frictionless user onboarding experience.'
+      }
+    ],
+    teamSize: 1,
+    myRole: 'Full Stack Developer',
+    difficulty: 'intermediate',
+    isResponsive: true,
+    hasDarkMode: false,
+    github: {
+      repoName: 'student_Attendance-with-googleSheet',
+      repoDescription: 'Student Attendance & Grades system storing data directly into Google Sheets via Google Service Account.',
+      stars: 0,
+      language: 'TypeScript / Next.js',
+      lastUpdated: '2026',
+      url: 'https://github.com/samet168/student_Attendance-with-googleSheet'
+    },
+    frontendUrl: 'https://github.com/samet168/student_Attendance-with-googleSheet',
+    liveUrl: 'https://student-attendance-with-google-shee.vercel.app/',
+    viewUrl: 'https://student-attendance-with-google-shee.vercel.app/',
+    overview: {
+      introduction:
+        'A modern education tool that transforms Google Sheets into a powerful, zero-cost database for student attendance tracking, grading, and automated registration.',
+      problem:
+        'Educational institutions and teachers frequently deal with paper attendance logs or costly, complicated database software with recurring monthly fees.',
+      solution:
+        'Developed a lightweight, high-performance Next.js 16 web app that interfaces seamlessly with Google Sheets via Google Cloud Service Accounts, offering instant QR self-registration, one-click attendance, and AI-powered insights.',
+      goal:
+        'Empower teachers with a 100% free, reliable, and user-friendly attendance and grading platform with automated cloud synchronization.',
+      keyFeatures: [
+        'Google Sheets API as Free Cloud Database',
+        'Instant Student QR Code Self-Registration',
+        'Fast Daily Attendance (Present, Permission, Absent)',
+        'Subject-Wise Attendance Summary & Analytics',
+        'Student Grade Management & Ranking',
+        'Built-in AI Assistant ("ឆ្លាត AI")',
+        '1-Click Sheet Setup with Automated Tabs',
+        'Mobile & Desktop Responsive Design'
+      ]
+    },
+    gallery: [
+      '/images/attendance-google-sheet.png'
+    ],
+    featured: true,
+    order: 1
+  },
+  {
     id: 'qr-code-studio-pro',
     slug: 'qr-code-studio-pro',
     title: 'QR Code Studio Pro',
@@ -272,7 +398,7 @@ export const projects: Project[] = [
       '/images/QR.png'
     ],
     featured: true,
-    order: 1
+    order: 2
   },
   {
     id: 'pharmacy-pos-system',
@@ -1068,7 +1194,7 @@ export const projects: Project[] = [
 
   featured: true,
 
-  order: 1,
+  order: 8,
 
   },
   {
