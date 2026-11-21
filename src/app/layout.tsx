@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
+import "./monochrome-theme.css";
 import { ThemeProvider } from "@/features/theme-provider";
 import { LanguageProvider } from "@/features/language-provider";
 
