@@ -16,23 +16,39 @@ function GithubMark({ className }: { className?: string }) {
 }
 
 function ProjectCard({ project }: { project: Project }) {
+  const tint = project.accentColor || '#38bdf8';
   return (
-    <article className="group flex h-full flex-col overflow-hidden rounded-2xl border border-gray-200 bg-white shadow-sm transition hover:-translate-y-1 hover:shadow-xl dark:border-white/10 dark:bg-[#14171c]">
-      <Link href={`/projects/${project.slug}`} className="relative block aspect-[16/9] overflow-hidden bg-gray-100 dark:bg-[#1b2028]}" aria-label={`View ${project.title} details`}>
-        {project.image ? <Image src={project.image} alt={`${project.title} preview`} fill sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw" className="object-cover transition-transform duration-500 group-hover:scale-105" /> : <div className={`absolute inset-0 flex items-center justify-center bg-gradient-to-br ${project.gradient} p-6 text-center`}><span className="text-xl font-bold text-white">{project.title}</span></div>}
-        <span className="absolute left-3 top-3 rounded-full border border-white/20 bg-black/60 px-3 py-1 text-xs text-white">{project.category}</span>
-        <span className="absolute right-3 top-3 rounded-full border border-white/20 bg-black/60 px-3 py-1 text-xs text-white">{project.status === 'in-progress' ? 'In progress' : project.status === 'open-source' ? 'Open source' : 'Completed'}</span>
+    <article
+      className="group relative flex h-full flex-col overflow-hidden rounded-2xl border bg-white shadow-sm transition duration-300 hover:-translate-y-1 hover:shadow-xl dark:bg-[#14171c]"
+      style={{ borderColor: `${tint}45`, boxShadow: `0 8px 26px -22px ${tint}90` }}
+    >
+      <div className="h-1 w-full" style={{ background: `linear-gradient(90deg, ${tint}, transparent)` }} />
+      <Link href={`/projects/${project.slug}`} className="relative block aspect-[16/9] overflow-hidden bg-gray-100 dark:bg-[#1b2028]" aria-label={`View ${project.title} details`}>
+        {project.image ? (
+          <Image src={project.image} alt={`${project.title} preview`} fill sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw" className="object-cover transition-transform duration-500 group-hover:scale-105" />
+        ) : (
+          <div className={`absolute inset-0 flex items-center justify-center bg-gradient-to-br ${project.gradient} p-6 text-center`}><span className="text-xl font-bold text-white">{project.title}</span></div>
+        )}
+        <div className="absolute inset-0 opacity-0 transition-opacity duration-300 group-hover:opacity-100" style={{ background: `linear-gradient(135deg, ${tint}25, transparent 65%)` }} />
+        <span className="absolute left-3 top-3 rounded-full border border-white/25 bg-black/65 px-3 py-1 text-xs font-medium text-white backdrop-blur-sm">{project.category}</span>
+        <span className="absolute right-3 top-3 rounded-full border border-white/25 bg-black/65 px-3 py-1 text-xs font-medium text-white backdrop-blur-sm">{project.status === 'in-progress' ? 'In progress' : project.status === 'open-source' ? 'Open source' : 'Completed'}</span>
       </Link>
       <div className="flex flex-1 flex-col p-5">
-        <Link href={`/projects/${project.slug}`} className="text-lg font-semibold text-gray-900 hover:text-sky-700 dark:text-white dark:hover:text-sky-300">{project.title}</Link>
+        <div className="flex items-start gap-2">
+          <span className="mt-2 h-2.5 w-2.5 shrink-0 rounded-full" style={{ backgroundColor: tint, boxShadow: `0 0 12px ${tint}90` }} />
+          <Link href={`/projects/${project.slug}`} className="text-lg font-semibold text-gray-900 transition-colors hover:text-sky-700 dark:text-white dark:hover:text-sky-300">{project.title}</Link>
+        </div>
         <p className="mt-2 line-clamp-2 text-sm leading-6 text-gray-600 dark:text-gray-400">{project.shortDescription}</p>
-        <div className="mt-4 flex flex-wrap gap-1.5">{project.technologies.slice(0, 4).map((tech) => <span key={tech} className="rounded-md border border-gray-200 bg-gray-50 px-2 py-1 text-[11px] text-gray-600 dark:border-white/10 dark:bg-white/[0.04] dark:text-gray-300">{tech}</span>)}{project.technologies.length > 4 && <span className="rounded-md border border-gray-200 px-2 py-1 text-[11px] text-gray-500 dark:border-white/10">+{project.technologies.length - 4}</span>}</div>
+        <div className="mt-4 flex flex-wrap gap-1.5">
+          {project.technologies.slice(0, 4).map((tech, index) => <span key={tech} className="rounded-md border px-2 py-1 text-[11px] font-medium" style={{ borderColor: `${tint}35`, backgroundColor: `${tint}${index === 0 ? '16' : '0b'}`, color: tint }}>{tech}</span>)}
+          {project.technologies.length > 4 && <span className="rounded-md border border-gray-200 bg-gray-50 px-2 py-1 text-[11px] text-gray-500 dark:border-white/10 dark:bg-white/[0.04] dark:text-gray-400">+{project.technologies.length - 4}</span>}
+        </div>
         <div className="mt-auto flex items-center justify-between gap-3 border-t border-gray-100 pt-4 dark:border-white/10">
           <span className="inline-flex items-center gap-1 text-xs text-gray-500 dark:text-gray-400">{project.github.stars !== undefined && <><Star className="h-3.5 w-3.5 text-amber-500" />{project.github.stars}</>}</span>
           <div className="flex items-center gap-2">
-            {project.github.url && project.github.url !== '#' && <a href={project.github.url} target="_blank" rel="noopener noreferrer" aria-label={`GitHub: ${project.title}`} className="grid h-9 w-9 place-items-center rounded-lg border border-gray-200 text-gray-600 hover:text-gray-900 dark:border-white/10 dark:text-gray-300 dark:hover:text-white"><GithubMark className="h-4 w-4" /></a>}
-            {(project.liveUrl || project.viewUrl) && <a href={project.liveUrl || project.viewUrl} target="_blank" rel="noopener noreferrer" aria-label={`Open ${project.title} demo`} className="grid h-9 w-9 place-items-center rounded-lg border border-gray-200 text-gray-600 hover:text-sky-700 dark:border-white/10 dark:text-gray-300 dark:hover:text-sky-300"><ExternalLink className="h-4 w-4" /></a>}
-            <Link href={`/projects/${project.slug}`} className="inline-flex h-9 items-center gap-1 rounded-lg bg-gray-900 px-3 text-xs font-semibold text-white dark:bg-white dark:text-gray-900">Details <ArrowRight className="h-3.5 w-3.5" /></Link>
+            {project.github.url && project.github.url !== '#' && <a href={project.github.url} target="_blank" rel="noopener noreferrer" aria-label={`GitHub: ${project.title}`} className="grid h-9 w-9 place-items-center rounded-lg border border-gray-200 text-gray-600 transition hover:border-gray-400 hover:text-gray-900 dark:border-white/10 dark:text-gray-300 dark:hover:text-white"><GithubMark className="h-4 w-4" /></a>}
+            {(project.liveUrl || project.viewUrl) && <a href={project.liveUrl || project.viewUrl} target="_blank" rel="noopener noreferrer" aria-label={`Open ${project.title} demo`} className="grid h-9 w-9 place-items-center rounded-lg border border-gray-200 text-gray-600 transition hover:border-sky-400/50 hover:text-sky-700 dark:border-white/10 dark:text-gray-300 dark:hover:text-sky-300"><ExternalLink className="h-4 w-4" /></a>}
+            <Link href={`/projects/${project.slug}`} className="inline-flex h-9 items-center gap-1 rounded-lg px-3 text-xs font-semibold text-white transition hover:brightness-110" style={{ backgroundColor: tint }}>Details <ArrowRight className="h-3.5 w-3.5" /></Link>
           </div>
         </div>
       </div>
