@@ -1,0 +1,41 @@
+/* Respect system accessibility settings and reduce GPU-heavy effects on constrained devices. */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto !important;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+html[data-performance='low'] {
+  scroll-behavior: auto;
+}
+
+html[data-performance='low'] *,
+html[data-performance='low'] *::before,
+html[data-performance='low'] *::after {
+  animation: none !important;
+  transition-duration: 0.01ms !important;
+  will-change: auto !important;
+}
+
+/* Large blurred layers and backdrop filters are costly to composite on weaker GPUs. */
+html[data-performance='low'] [class*='blur-'] {
+  filter: none !important;
+}
+
+html[data-performance='low'] [class*='backdrop-blur'] {
+  -webkit-backdrop-filter: none !important;
+  backdrop-filter: none !important;
+}
+
+html[data-performance='low'] .noise-overlay {
+  display: none !important;
+}
