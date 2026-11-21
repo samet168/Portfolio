@@ -1,5 +1,6 @@
-/* Monochrome theme overrides: keep contrast while replacing the blue/purple accent palette. */
-:root {
+/* Consistent charcoal theme. Keep styling semantic rather than rewriting utility classes globally. */
+:root,
+html.dark {
   color-scheme: dark;
   --background: #090909;
   --surface: #141414;
@@ -10,78 +11,67 @@
   --accent-glow: rgb(255 255 255 / 14%);
   --accent-glow-secondary: rgb(255 255 255 / 8%);
   --border: rgb(255 255 255 / 12%);
-  --glass: rgb(23 23 23 / 78%);
+  --glass: rgb(23 23 23 / 88%);
   --glass-border: rgb(255 255 255 / 10%);
   --gradient-primary: linear-gradient(135deg, #f5f5f5 0%, #a3a3a3 100%);
   --gradient-secondary: linear-gradient(135deg, #e5e5e5 0%, #737373 100%);
   --gradient-aurora: linear-gradient(135deg, #090909 0%, #171717 52%, #0a0a0a 100%);
+  background: var(--background);
 }
 
 html,
-html.dark {
-  color-scheme: dark;
-  background: #090909;
-}
-
 body {
+  min-height: 100%;
   background-color: var(--background);
   color: var(--text);
 }
 
-/* Replace Tailwind accent text and surface colors with neutral grays. */
-[class~="text-blue-400"], [class~="text-blue-500"], [class~="text-blue-600"],
-[class~="text-cyan-400"], [class~="text-cyan-500"],
-[class~="text-indigo-400"], [class~="text-indigo-500"],
-[class~="text-purple-400"], [class~="text-purple-500"],
-[class~="text-violet-400"], [class~="text-violet-500"],
-[class~="text-sky-400"], [class~="text-sky-500"],
-[class~="text-pink-400"], [class~="text-pink-500"],
-[class~="text-rose-400"], [class~="text-rose-500"],
-[class~="text-emerald-400"], [class~="text-green-400"],
-[class~="text-amber-400"], [class~="text-yellow-400"], [class~="text-orange-400"] {
+body {
+  background-image: linear-gradient(180deg, #101010 0%, #090909 32rem);
+}
+
+/* Shared monochrome accents for headings and decorative gradient fills. */
+.gradient-text,
+.gradient-text-animated {
+  background-image: linear-gradient(135deg, #f5f5f5 0%, #a3a3a3 100%) !important;
+  animation: none !important;
+}
+
+[class*="bg-gradient-to-"] {
+  background-image: linear-gradient(135deg, #525252 0%, #303030 100%) !important;
+}
+
+[class*="text-blue-"],
+[class*="text-cyan-"],
+[class*="text-indigo-"],
+[class*="text-purple-"],
+[class*="text-violet-"],
+[class*="text-sky-"],
+[class*="text-pink-"],
+[class*="text-rose-"],
+[class*="text-emerald-"],
+[class*="text-green-"],
+[class*="text-amber-"],
+[class*="text-yellow-"],
+[class*="text-orange-"] {
   color: #d4d4d4 !important;
 }
 
-[class~="bg-blue-500"], [class~="bg-blue-600"], [class~="bg-cyan-500"],
-[class~="bg-indigo-500"], [class~="bg-purple-500"], [class~="bg-violet-500"],
-[class~="bg-sky-500"], [class~="bg-pink-500"], [class~="bg-rose-500"],
-[class~="bg-emerald-500"], [class~="bg-green-500"], [class~="bg-amber-500"],
-[class~="bg-yellow-500"], [class~="bg-orange-500"] {
-  background-color: #525252 !important;
+[class*="border-blue-"],
+[class*="border-cyan-"],
+[class*="border-indigo-"],
+[class*="border-purple-"],
+[class*="border-violet-"],
+[class*="border-emerald-"],
+[class*="border-green-"],
+[class*="border-amber-"],
+[class*="border-yellow-"] {
+  border-color: rgb(212 212 212 / 24%) !important;
 }
 
-[class~="border-blue-500"], [class~="border-blue-500/20"], [class~="border-blue-500/30"],
-[class~="border-cyan-500"], [class~="border-purple-500"], [class~="border-indigo-500"],
-[class~="border-green-500"], [class~="border-yellow-500"], [class~="border-rose-500"] {
-  border-color: rgb(212 212 212 / 28%) !important;
-}
-
-/* Make gradient accents grayscale, including gradient text and buttons. */
-[class~="from-blue-400"], [class~="from-blue-500"], [class~="from-cyan-400"], [class~="from-cyan-500"],
-[class~="from-indigo-500"], [class~="from-purple-400"], [class~="from-purple-500"],
-[class~="from-violet-500"], [class~="from-pink-500"], [class~="from-rose-500"],
-[class~="from-green-500"], [class~="from-emerald-500"], [class~="from-amber-500"], [class~="from-orange-400"],
-[class~="from-orange-500"], [class~="from-yellow-500"] {
-  --tw-gradient-from: #e5e5e5 var(--tw-gradient-from-position) !important;
-  --tw-gradient-to: rgb(229 229 229 / 0%) var(--tw-gradient-to-position) !important;
-}
-
-[class~="to-blue-400"], [class~="to-blue-500"], [class~="to-cyan-400"], [class~="to-cyan-500"],
-[class~="to-indigo-400"], [class~="to-indigo-500"], [class~="to-purple-400"], [class~="to-purple-500"],
-[class~="to-violet-400"], [class~="to-pink-400"], [class~="to-pink-500"], [class~="to-rose-400"],
-[class~="to-rose-500"], [class~="to-green-400"], [class~="to-emerald-400"], [class~="to-amber-400"],
-[class~="to-orange-400"], [class~="to-orange-500"], [class~="to-yellow-400"] {
-  --tw-gradient-to: #737373 var(--tw-gradient-to-position) !important;
-}
-
-[class~="via-cyan-400"], [class~="via-cyan-500"], [class~="via-blue-500"], [class~="via-indigo-500"] {
-  --tw-gradient-stops: var(--tw-gradient-from), #a3a3a3 var(--tw-gradient-via-position), var(--tw-gradient-to) !important;
-}
-
-/* Keep content surfaces subtle and avoid the previous blue glow. */
-.glow, .glow-lg, [class~="shadow-blue-500/25"], [class~="shadow-blue-500/30"] {
-  --tw-shadow-color: rgb(255 255 255 / 12%) !important;
-  box-shadow: 0 12px 32px -18px rgb(255 255 255 / 18%) !important;
+.glow,
+.glow-lg {
+  box-shadow: 0 12px 32px -18px rgb(255 255 255 / 18%);
 }
 
 ::selection {
@@ -91,4 +81,51 @@ body {
 
 :focus-visible {
   outline-color: #d4d4d4;
+}
+
+/* Skills: restrained, readable cards; remove the 3D tilt and blurred glow layers. */
+#skills [class~="group"] {
+  transform: none !important;
+  transform-style: flat !important;
+}
+
+#skills [class~="group"] > [class~="absolute"] {
+  display: none !important;
+}
+
+#skills [class~="group"] > [class~="relative"][class~="flex"] {
+  min-height: 64px;
+  border: 1px solid rgb(255 255 255 / 10%) !important;
+  border-radius: 14px;
+  background: #151515 !important;
+  box-shadow: none !important;
+  -webkit-backdrop-filter: none !important;
+  backdrop-filter: none !important;
+  transition: background-color 160ms ease, border-color 160ms ease;
+}
+
+#skills [class~="group"]:hover > [class~="relative"][class~="flex"] {
+  background: #1d1d1d !important;
+  border-color: rgb(255 255 255 / 24%) !important;
+}
+
+#skills [class~="group"] [class~="w-9"][class~="h-9"] {
+  width: 36px;
+  height: 36px;
+  border: 1px solid rgb(255 255 255 / 10%);
+  background-image: linear-gradient(145deg, #454545, #262626) !important;
+}
+
+#skills [class~="group"] [class~="text-sm"][class~="font-medium"] {
+  color: #e5e5e5 !important;
+}
+
+#skills [class~="group"]:hover [class~="text-sm"][class~="font-medium"] {
+  color: #fff !important;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .gradient-text-animated {
+    animation: none !important;
+  }
 }
