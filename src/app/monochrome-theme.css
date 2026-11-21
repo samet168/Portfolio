@@ -1,21 +1,21 @@
-/* Refined monochrome foundation with purposeful blue/cyan accents. */
+/* Dark charcoal foundation with restrained cyan/indigo accents. */
 :root,
 html.dark {
   color-scheme: dark;
-  --background: #090909;
-  --surface: #141414;
-  --text: #f5f5f5;
-  --text-secondary: #a3a3a3;
+  --background: #090a0d;
+  --surface: #14171c;
+  --text: #f4f6f8;
+  --text-secondary: #a4acb8;
   --accent: #38bdf8;
   --accent-secondary: #818cf8;
   --accent-glow: rgb(56 189 248 / 22%);
   --accent-glow-secondary: rgb(129 140 248 / 16%);
   --border: rgb(255 255 255 / 12%);
-  --glass: rgb(23 23 23 / 88%);
+  --glass: rgb(20 23 28 / 90%);
   --glass-border: rgb(255 255 255 / 10%);
-  --gradient-primary: linear-gradient(135deg, #60a5fa 0%, #22d3ee 52%, #818cf8 100%);
-  --gradient-secondary: linear-gradient(135deg, #38bdf8 0%, #8b5cf6 100%);
-  --gradient-aurora: linear-gradient(135deg, #090909 0%, #171717 52%, #0a0a0a 100%);
+  --gradient-primary: linear-gradient(110deg, #67e8f9 0%, #60a5fa 52%, #a5b4fc 100%);
+  --gradient-secondary: linear-gradient(110deg, #38bdf8 0%, #818cf8 100%);
+  --gradient-aurora: linear-gradient(135deg, #090a0d 0%, #171a20 52%, #0a0b0e 100%);
   background: var(--background);
 }
 
@@ -28,9 +28,9 @@ body {
 
 body {
   background-image:
-    radial-gradient(circle at 12% 8%, rgb(14 165 233 / 7%), transparent 24rem),
-    radial-gradient(circle at 88% 18%, rgb(139 92 246 / 5%), transparent 26rem),
-    linear-gradient(180deg, #101010 0%, #090909 36rem);
+    radial-gradient(ellipse at 12% 5%, rgb(14 165 233 / 6%), transparent 26rem),
+    radial-gradient(ellipse at 88% 18%, rgb(99 102 241 / 5%), transparent 28rem),
+    linear-gradient(180deg, #101216 0%, #090a0d 38rem);
 }
 
 .gradient-text {
@@ -38,92 +38,72 @@ body {
 }
 
 .gradient-text-animated {
-  background-image: linear-gradient(135deg, #60a5fa 0%, #22d3ee 35%, #818cf8 70%, #60a5fa 100%) !important;
-  animation: shimmerGradient 5s linear infinite;
+  background-image: linear-gradient(110deg, #67e8f9, #60a5fa 45%, #a5b4fc 75%, #67e8f9) !important;
 }
 
-/* Reusable accent surfaces for cards, controls, and status elements. */
-#skills [class~="group"] > [class~="relative"][class~="flex"] {
-  min-height: 64px;
-  border: 1px solid rgb(255 255 255 / 10%) !important;
-  border-radius: 14px;
-  background:
-    linear-gradient(135deg, rgb(56 189 248 / 7%), rgb(129 140 248 / 4%)),
-    #151515 !important;
-  box-shadow: inset 0 1px 0 rgb(255 255 255 / 4%) !important;
-  -webkit-backdrop-filter: none !important;
-  backdrop-filter: none !important;
-  transition: background 160ms ease, border-color 160ms ease, box-shadow 160ms ease;
-}
-
-#skills [class~="group"]:hover > [class~="relative"][class~="flex"] {
-  background:
-    linear-gradient(135deg, rgb(56 189 248 / 12%), rgb(129 140 248 / 8%)),
-    #1b1b1b !important;
-  border-color: rgb(56 189 248 / 38%) !important;
-  box-shadow: 0 10px 24px -18px rgb(56 189 248 / 55%) !important;
-}
-
-#skills [class~="group"] [class~="w-9"][class~="h-9"] {
-  width: 36px;
-  height: 36px;
-  border: 1px solid rgb(255 255 255 / 12%);
-  background-image: linear-gradient(145deg, #38bdf8, #6366f1) !important;
-  box-shadow: 0 6px 14px -8px rgb(56 189 248 / 70%);
-}
-
-#skills [class~="group"] [class~="text-sm"][class~="font-medium"] {
-  color: #f5f5f5 !important;
-}
-
-#skills [class~="group"]:hover [class~="text-sm"][class~="font-medium"] {
-  color: #bae6fd !important;
-}
-
-/* Accent interactive controls without replacing the page foundation. */
+/* Shared gradient actions, while leaving project artwork and category gradients alone. */
 button[class*="bg-gradient-to-"],
 a[class*="bg-gradient-to-"] {
-  background-image: linear-gradient(135deg, #2563eb 0%, #0891b2 58%, #6366f1 100%) !important;
+  background-image: linear-gradient(120deg, #2563eb 0%, #0891b2 58%, #6366f1 100%) !important;
   color: #fff !important;
-  box-shadow: 0 10px 24px -16px rgb(56 189 248 / 75%) !important;
+  box-shadow: 0 10px 24px -16px rgb(56 189 248 / 65%) !important;
 }
 
-[class*="bg-blue-500/10"],
-[class*="bg-cyan-500/10"],
-[class*="bg-indigo-500/10"],
-[class*="bg-purple-500/10"] {
-  background: rgb(56 189 248 / 9%) !important;
-  border-color: rgb(56 189 248 / 20%) !important;
-}
-
-[class*="text-blue-"],
-[class*="text-cyan-"] {
-  color: #38bdf8 !important;
-}
-
-[class*="text-indigo-"],
-[class*="text-purple-"],
-[class*="text-violet-"] {
-  color: #a5b4fc !important;
-}
-
-[class*="border-blue-"],
-[class*="border-cyan-"] {
-  border-color: rgb(56 189 248 / 30%) !important;
-}
+[class*="text-blue-"], [class*="text-cyan-"] { color: #67d9f5 !important; }
+[class*="text-indigo-"], [class*="text-purple-"], [class*="text-violet-"] { color: #a5b4fc !important; }
+[class*="border-blue-"], [class*="border-cyan-"] { border-color: rgb(56 189 248 / 28%) !important; }
 
 .glow,
 .glow-lg {
-  box-shadow:
-    0 12px 32px -18px rgb(56 189 248 / 34%),
-    0 10px 26px -20px rgb(129 140 248 / 28%);
+  box-shadow: 0 12px 32px -18px rgb(56 189 248 / 30%), 0 10px 26px -20px rgb(129 140 248 / 24%);
 }
 
-::selection {
-  background: #1d4ed8;
-  color: #fff;
+::selection { background: #155e75; color: #fff; }
+:focus-visible { outline-color: #67d9f5; }
+
+/* Skills cards: preserve each category's existing distinct color, with calmer surfaces. */
+#skills [class~="group"] > [class~="relative"][class~="flex"] {
+  min-height: 64px;
+  border: 1px solid rgb(255 255 255 / 9%) !important;
+  border-radius: 14px;
+  background: linear-gradient(120deg, rgb(255 255 255 / 3%), transparent 70%), #15171b !important;
+  box-shadow: inset 0 1px 0 rgb(255 255 255 / 4%) !important;
+  -webkit-backdrop-filter: none !important;
+  backdrop-filter: none !important;
+  transition: background-color 160ms ease, border-color 160ms ease, box-shadow 160ms ease;
 }
 
-:focus-visible {
-  outline-color: #38bdf8;
+#skills [class~="group"]:hover > [class~="relative"][class~="flex"] {
+  background: linear-gradient(120deg, rgb(255 255 255 / 5%), transparent 70%), #1b1e23 !important;
+  border-color: rgb(255 255 255 / 20%) !important;
+  box-shadow: 0 10px 24px -18px rgb(0 0 0 / 80%) !important;
+}
+
+/* Retain the frontend/backend/database category hues instead of forcing every icon blue. */
+#skills [class~="group"] [class~="w-9"][class~="h-9"] {
+  width: 36px;
+  height: 36px;
+  border: 1px solid rgb(255 255 255 / 16%);
+  box-shadow: 0 5px 14px -9px rgb(0 0 0 / 75%);
+  filter: saturate(.82);
+}
+
+#skills [class~="group"] [class~="text-sm"][class~="font-medium"] { color: #e8ebef !important; }
+#skills [class~="group"]:hover [class~="text-sm"][class~="font-medium"] { color: #fff !important; }
+
+/* Project detail page: harmonize lingering blue accents and navy surfaces with the new theme.
+   The sticky sidebar is unique to the detail layout, so project artwork and cards elsewhere are untouched. */
+body:has(.sticky.top-24) [class*="text-blue-"] { color: #67d9f5 !important; }
+body:has(.sticky.top-24) [class*="text-cyan-"] { color: #67e8f9 !important; }
+body:has(.sticky.top-24) [class*="text-indigo-"],
+body:has(.sticky.top-24) [class*="text-purple-"] { color: #a5b4fc !important; }
+body:has(.sticky.top-24) [class*="dark:bg-slate-900"] { background-color: #15181d !important; }
+body:has(.sticky.top-24) [class*="hover:border-blue-"]:hover { border-color: rgb(56 189 248 / 35%) !important; }
+body:has(.sticky.top-24) [class*="bg-blue-500/10"],
+body:has(.sticky.top-24) [class*="bg-cyan-500/10"] {
+  background-color: rgb(56 189 248 / 10%) !important;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .gradient-text-animated { animation: none !important; }
 }
