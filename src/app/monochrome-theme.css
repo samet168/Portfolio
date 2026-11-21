@@ -1,4 +1,4 @@
-/* Consistent charcoal theme. Keep styling semantic rather than rewriting utility classes globally. */
+/* Refined monochrome foundation with purposeful blue/cyan accents. */
 :root,
 html.dark {
   color-scheme: dark;
@@ -6,15 +6,15 @@ html.dark {
   --surface: #141414;
   --text: #f5f5f5;
   --text-secondary: #a3a3a3;
-  --accent: #d4d4d4;
-  --accent-secondary: #a3a3a3;
-  --accent-glow: rgb(255 255 255 / 14%);
-  --accent-glow-secondary: rgb(255 255 255 / 8%);
+  --accent: #38bdf8;
+  --accent-secondary: #818cf8;
+  --accent-glow: rgb(56 189 248 / 22%);
+  --accent-glow-secondary: rgb(129 140 248 / 16%);
   --border: rgb(255 255 255 / 12%);
   --glass: rgb(23 23 23 / 88%);
   --glass-border: rgb(255 255 255 / 10%);
-  --gradient-primary: linear-gradient(135deg, #f5f5f5 0%, #a3a3a3 100%);
-  --gradient-secondary: linear-gradient(135deg, #e5e5e5 0%, #737373 100%);
+  --gradient-primary: linear-gradient(135deg, #60a5fa 0%, #22d3ee 52%, #818cf8 100%);
+  --gradient-secondary: linear-gradient(135deg, #38bdf8 0%, #8b5cf6 100%);
   --gradient-aurora: linear-gradient(135deg, #090909 0%, #171717 52%, #0a0a0a 100%);
   background: var(--background);
 }
@@ -27,105 +27,103 @@ body {
 }
 
 body {
-  background-image: linear-gradient(180deg, #101010 0%, #090909 32rem);
+  background-image:
+    radial-gradient(circle at 12% 8%, rgb(14 165 233 / 7%), transparent 24rem),
+    radial-gradient(circle at 88% 18%, rgb(139 92 246 / 5%), transparent 26rem),
+    linear-gradient(180deg, #101010 0%, #090909 36rem);
 }
 
-/* Shared monochrome accents for headings and decorative gradient fills. */
-.gradient-text,
+.gradient-text {
+  background-image: var(--gradient-primary) !important;
+}
+
 .gradient-text-animated {
-  background-image: linear-gradient(135deg, #f5f5f5 0%, #a3a3a3 100%) !important;
-  animation: none !important;
+  background-image: linear-gradient(135deg, #60a5fa 0%, #22d3ee 35%, #818cf8 70%, #60a5fa 100%) !important;
+  animation: shimmerGradient 5s linear infinite;
 }
 
-[class*="bg-gradient-to-"] {
-  background-image: linear-gradient(135deg, #525252 0%, #303030 100%) !important;
-}
-
-[class*="text-blue-"],
-[class*="text-cyan-"],
-[class*="text-indigo-"],
-[class*="text-purple-"],
-[class*="text-violet-"],
-[class*="text-sky-"],
-[class*="text-pink-"],
-[class*="text-rose-"],
-[class*="text-emerald-"],
-[class*="text-green-"],
-[class*="text-amber-"],
-[class*="text-yellow-"],
-[class*="text-orange-"] {
-  color: #d4d4d4 !important;
-}
-
-[class*="border-blue-"],
-[class*="border-cyan-"],
-[class*="border-indigo-"],
-[class*="border-purple-"],
-[class*="border-violet-"],
-[class*="border-emerald-"],
-[class*="border-green-"],
-[class*="border-amber-"],
-[class*="border-yellow-"] {
-  border-color: rgb(212 212 212 / 24%) !important;
-}
-
-.glow,
-.glow-lg {
-  box-shadow: 0 12px 32px -18px rgb(255 255 255 / 18%);
-}
-
-::selection {
-  background: #525252;
-  color: #fff;
-}
-
-:focus-visible {
-  outline-color: #d4d4d4;
-}
-
-/* Skills: restrained, readable cards; remove the 3D tilt and blurred glow layers. */
-#skills [class~="group"] {
-  transform: none !important;
-  transform-style: flat !important;
-}
-
-#skills [class~="group"] > [class~="absolute"] {
-  display: none !important;
-}
-
+/* Reusable accent surfaces for cards, controls, and status elements. */
 #skills [class~="group"] > [class~="relative"][class~="flex"] {
   min-height: 64px;
   border: 1px solid rgb(255 255 255 / 10%) !important;
   border-radius: 14px;
-  background: #151515 !important;
-  box-shadow: none !important;
+  background:
+    linear-gradient(135deg, rgb(56 189 248 / 7%), rgb(129 140 248 / 4%)),
+    #151515 !important;
+  box-shadow: inset 0 1px 0 rgb(255 255 255 / 4%) !important;
   -webkit-backdrop-filter: none !important;
   backdrop-filter: none !important;
-  transition: background-color 160ms ease, border-color 160ms ease;
+  transition: background 160ms ease, border-color 160ms ease, box-shadow 160ms ease;
 }
 
 #skills [class~="group"]:hover > [class~="relative"][class~="flex"] {
-  background: #1d1d1d !important;
-  border-color: rgb(255 255 255 / 24%) !important;
+  background:
+    linear-gradient(135deg, rgb(56 189 248 / 12%), rgb(129 140 248 / 8%)),
+    #1b1b1b !important;
+  border-color: rgb(56 189 248 / 38%) !important;
+  box-shadow: 0 10px 24px -18px rgb(56 189 248 / 55%) !important;
 }
 
 #skills [class~="group"] [class~="w-9"][class~="h-9"] {
   width: 36px;
   height: 36px;
-  border: 1px solid rgb(255 255 255 / 10%);
-  background-image: linear-gradient(145deg, #454545, #262626) !important;
+  border: 1px solid rgb(255 255 255 / 12%);
+  background-image: linear-gradient(145deg, #38bdf8, #6366f1) !important;
+  box-shadow: 0 6px 14px -8px rgb(56 189 248 / 70%);
 }
 
 #skills [class~="group"] [class~="text-sm"][class~="font-medium"] {
-  color: #e5e5e5 !important;
+  color: #f5f5f5 !important;
 }
 
 #skills [class~="group"]:hover [class~="text-sm"][class~="font-medium"] {
-  color: #fff !important;
+  color: #bae6fd !important;
 }
 
-@media (prefers-reduced-motion: reduce) {
-  .gradient-text-animated {
-    animation: none !important;
-  }
+/* Accent interactive controls without replacing the page foundation. */
+button[class*="bg-gradient-to-"],
+a[class*="bg-gradient-to-"] {
+  background-image: linear-gradient(135deg, #2563eb 0%, #0891b2 58%, #6366f1 100%) !important;
+  color: #fff !important;
+  box-shadow: 0 10px 24px -16px rgb(56 189 248 / 75%) !important;
+}
+
+[class*="bg-blue-500/10"],
+[class*="bg-cyan-500/10"],
+[class*="bg-indigo-500/10"],
+[class*="bg-purple-500/10"] {
+  background: rgb(56 189 248 / 9%) !important;
+  border-color: rgb(56 189 248 / 20%) !important;
+}
+
+[class*="text-blue-"],
+[class*="text-cyan-"] {
+  color: #38bdf8 !important;
+}
+
+[class*="text-indigo-"],
+[class*="text-purple-"],
+[class*="text-violet-"] {
+  color: #a5b4fc !important;
+}
+
+[class*="border-blue-"],
+[class*="border-cyan-"] {
+  border-color: rgb(56 189 248 / 30%) !important;
+}
+
+.glow,
+.glow-lg {
+  box-shadow:
+    0 12px 32px -18px rgb(56 189 248 / 34%),
+    0 10px 26px -20px rgb(129 140 248 / 28%);
+}
+
+::selection {
+  background: #1d4ed8;
+  color: #fff;
+}
+
+:focus-visible {
+  outline-color: #38bdf8;
 }
